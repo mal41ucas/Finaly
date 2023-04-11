@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.Screen_Login_Register.RegisterActivity">
+
+    <ImageView
+        android:id="@+id/imageIconRegister"
+        android:layout_width="@dimen/_120sdp"
+        android:layout_height="@dimen/_90sdp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/icon_splash" />
+
+    <TextView
+        android:id="@+id/tvMyCarRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="10dp"
+        android:text="سيارتي"
+        android:textAllCaps="true"
+        android:textColor="#2196F3"
+        android:textSize="45sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageIconRegister"
+        app:layout_constraintStart_toEndOf="@+id/imageIconRegister"
+        app:layout_constraintTop_toTopOf="@+id/imageIconRegister" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cardRegister"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/_18sdp"
+        android:background="@drawable/shape_welcome"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageIconRegister">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnRegister"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/shape_btn_next"
+            android:text="التسجيل"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_14ssp"
+            android:gravity="center"
+            app:layout_constraintEnd_toEndOf="@+id/edConfirmPasswordRegister"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/edConfirmPasswordRegister"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayoutSelectAccount" />
+
+        <EditText
+            android:id="@+id/edFullNameRegister"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="40dp"
+            android:background="@drawable/shape_edit_login"
+            android:drawableRight="@drawable/ic_baseline_person_24"
+            android:drawablePadding="@dimen/_10sdp"
+            android:gravity="right|center"
+            android:ems="10"
+            android:hint="الإسم الأول"
+            android:inputType="text"
+            android:minHeight="48dp"
+            android:paddingRight="@dimen/_15sdp"
+            android:textSize="@dimen/_15sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+        <EditText
+            android:id="@+id/edLastName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="40dp"
+            android:background="@drawable/shape_edit_login"
+            android:drawableRight="@drawable/ic_baseline_groups_24"
+            android:drawablePadding="@dimen/_10sdp"
+            android:ems="10"
+            android:gravity="right|center"
+            android:hint="إسم العائلة"
+            android:inputType="text"
+            android:minHeight="48dp"
+            android:paddingRight="@dimen/_15sdp"
+            android:textSize="@dimen/_15ssp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edFullNameRegister" />
+
+        <EditText
+            android:id="@+id/edPhoneNumberRegister"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/shape_edit_login"
+            android:drawableRight="@drawable/baseline_phone_enabled_24"
+            android:drawablePadding="@dimen/_10sdp"
+            android:ems="10"
+            android:gravity="right|center"
+            android:hint="رقم الهاتف"
+            android:inputType="phone"
+            android:minHeight="48dp"
+            android:paddingRight="@dimen/_15sdp"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="@+id/edFullNameRegister"
+            app:layout_constraintStart_toStartOf="@+id/edFullNameRegister"
+            app:layout_constraintTop_toBottomOf="@+id/edLastName" />
+
+        <EditText
+            android:id="@+id/edEmailRegister"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/shape_edit_login"
+            android:drawableRight="@drawable/ic_baseline_email_24"
+            android:drawablePadding="@dimen/_10sdp"
+            android:ems="10"
+            android:gravity="right|center"
+            android:hint="إسم المستخدم"
+            android:inputType="textEmailAddress"
+            android:minHeight="48dp"
+            android:paddingRight="@dimen/_15sdp"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="@+id/edFullNameRegister"
+            app:layout_constraintStart_toStartOf="@+id/edFullNameRegister"
+            app:layout_constraintTop_toBottomOf="@+id/edPhoneNumberRegister" />
+
+        <EditText
+            android:id="@+id/edPasswordRegister"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/shape_edit_login"
+            android:drawableRight="@drawable/ic_baseline_lock_24"
+            android:drawablePadding="@dimen/_10sdp"
+            android:ems="10"
+            android:gravity="right|center"
+            android:hint="كلمة المرور"
+            android:inputType="textPassword"
+            android:minHeight="48dp"
+            android:paddingRight="@dimen/_15sdp"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="@+id/edFullNameRegister"
+            app:layout_constraintStart_toStartOf="@+id/edFullNameRegister"
+            app:layout_constraintTop_toBottomOf="@+id/edEmailRegister" />
+
+        <EditText
+            android:id="@+id/edConfirmPasswordRegister"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/shape_edit_login"
+            android:drawableRight="@drawable/baseline_lock_person_24"
+            android:drawablePadding="@dimen/_10sdp"
+            android:ems="10"
+            android:gravity="right|center"
+            android:hint="تأكيد كلمة المرور"
+            android:inputType="textPassword"
+            android:minHeight="48dp"
+            android:paddingRight="@dimen/_15sdp"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="@+id/edFullNameRegister"
+            app:layout_constraintStart_toStartOf="@+id/edFullNameRegister"
+            app:layout_constraintTop_toBottomOf="@+id/edPasswordRegister" />
+
+        <LinearLayout
+            android:id="@+id/linearLayoutSelectAccount"
+            android:layout_width="@dimen/_170sdp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="30dp"
+            android:layout_weight="1"
+            android:background="@drawable/shape_edit_login"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="@+id/edConfirmPasswordRegister"
+            app:layout_constraintStart_toStartOf="@+id/edConfirmPasswordRegister"
+            app:layout_constraintTop_toBottomOf="@+id/edConfirmPasswordRegister">
+
+            <TextView
+                android:id="@+id/tvAgent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/shape_btn_next"
+                android:gravity="center"
+                android:padding="7dp"
+                android:text="وكيل"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                android:textSize="15sp" />
+
+            <View
+                android:id="@+id/dividerAgent"
+                android:layout_width="0.1dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.2"
+                android:background="@color/white"
+                android:visibility="visible" />
+
+            <View
+                android:id="@+id/dividerFair"
+                android:layout_width="0.1dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.2"
+                android:background="@color/white"
+                android:visibility="invisible" />
+
+            <TextView
+                android:id="@+id/tvFair"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="7dp"
+                android:text="معرض"
+                android:textAllCaps="true"
+                android:textColor="@color/teal_700"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="@dimen/_170sdp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/shape_edit_login"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/tvMerchantRegister"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/shape_btn_next"
+                android:gravity="center"
+                android:padding="7dp"
+                android:text="تاجر"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_12ssp" />
+
+            <View
+                android:id="@+id/dividerMRegister"
+                android:layout_width="0.1dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.2"
+                android:background="@color/white" />
+
+            <View
+                android:id="@+id/dividerCRegister"
+                android:layout_width="0.1dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.2"
+                android:background="@color/white"
+                android:visibility="invisible" />
+
+            <TextView
+                android:id="@+id/tvCustomerRegister"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="7dp"
+                android:text="مستخدم"
+                android:textAllCaps="true"
+                android:textColor="@color/teal_700"
+                android:textSize="@dimen/_12ssp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/haveAccount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="30dp"
+            android:layout_weight="1"
+            android:background="@drawable/shape_or"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="هل لديك حسابب بالفعل ؟ "
+            android:textColor="@color/black"
+            android:textSize="@dimen/_16ssp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnRegister" />
+
+        <TextView
+            android:id="@+id/tvSginInRegister"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/shape_or"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="تسجيل  الدخول"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_17ssp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/haveAccount"
+            app:layout_constraintEnd_toStartOf="@+id/haveAccount"
+            app:layout_constraintTop_toTopOf="@+id/haveAccount" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

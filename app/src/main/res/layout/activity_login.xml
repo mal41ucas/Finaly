@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.Screen_Login_Register.LoginActivity">
+
+    <TextView
+        android:id="@+id/tvDetailsIntro3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_3sdp"
+        android:gravity="center"
+        android:text="لبيع وشراء السيارات"
+        android:textAllCaps="true"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_13ssp"
+        app:layout_constraintEnd_toEndOf="@+id/tvMyCarLogin"
+        app:layout_constraintStart_toStartOf="@+id/tvMyCarLogin"
+        app:layout_constraintTop_toBottomOf="@+id/tvMyCarLogin" />
+
+    <TextView
+        android:id="@+id/tvMyCarLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-15dp"
+        android:text="سيارتي"
+        android:textAllCaps="true"
+        android:textColor="#2196F3"
+        android:textSize="@dimen/_37ssp"
+        app:layout_constraintEnd_toEndOf="@+id/imageIconLoin"
+        app:layout_constraintStart_toStartOf="@+id/imageIconLoin"
+        app:layout_constraintTop_toBottomOf="@+id/imageIconLoin" />
+
+    <ImageView
+        android:id="@+id/imageIconLoin"
+        android:layout_width="@dimen/_140sdp"
+        android:layout_height="@dimen/_120sdp"
+        android:layout_marginStart="110dp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginEnd="110dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/icon_splash" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cardLogin"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:background="@drawable/shape_welcome"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvDetailsIntro3"
+        app:layout_constraintVertical_bias="0.0">
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_marginEnd="27dp"
+            android:text="تسجيل الدخول..."
+            android:textAllCaps="true"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_19ssp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvForgetPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="نسيت كلمة المرور ؟"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_13sdp"
+            app:layout_constraintStart_toStartOf="@+id/edPasswordLogin"
+            app:layout_constraintTop_toBottomOf="@+id/edPasswordLogin" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnSignIn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/shape_btn_next"
+            android:drawableRight="@drawable/ic_baseline_arrow_circle_right_24"
+            android:padding="@dimen/_13sdp"
+            android:text="تسجيل الدخول"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_15sdp"
+            app:layout_constraintEnd_toEndOf="@+id/edPasswordLogin"
+            app:layout_constraintStart_toStartOf="@+id/edPasswordLogin"
+            app:layout_constraintTop_toBottomOf="@+id/tvForgetPassword" />
+
+        <TextView
+            android:id="@+id/btnSignUp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_8sdp"
+            android:text="إنشاء حساب جديد"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_17ssp"
+            app:layout_constraintBottom_toBottomOf="@+id/textView_have_account"
+            app:layout_constraintEnd_toStartOf="@+id/textView_have_account"
+            app:layout_constraintTop_toTopOf="@+id/textView_have_account" />
+
+        <TextView
+            android:id="@+id/btnGuest"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/shape_edit_login"
+            android:gravity="center"
+            android:padding="@dimen/_10sdp"
+            android:text="الدخول كزائر"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_13ssp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/btnSignIn"
+            app:layout_constraintStart_toStartOf="@+id/btnSignIn"
+            app:layout_constraintTop_toBottomOf="@+id/textView_have_account" />
+
+        <TextView
+            android:id="@+id/textView_have_account"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text=" ليس لديك حساب ؟"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_19sdp"
+            app:layout_constraintEnd_toEndOf="@+id/btnSignIn"
+            app:layout_constraintTop_toBottomOf="@+id/btnSignIn" />
+
+        <EditText
+            android:id="@+id/edEmailLogin"
+            android:layout_width="@dimen/_250sdp"
+            android:layout_height="@dimen/_48sdp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="@dimen/_25sdp"
+            android:layout_marginEnd="40dp"
+            android:background="@drawable/shape_edit_login"
+            android:drawableRight="@drawable/ic_baseline_email_24"
+            android:drawablePadding="20dp"
+            android:ems="10"
+            android:hint="إسم المستخدم"
+            android:gravity="right|center"
+            android:inputType="textEmailAddress"
+            android:minHeight="48dp"
+            android:paddingRight="@dimen/_15sdp"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView1" />
+
+        <EditText
+            android:id="@+id/edPasswordLogin"
+            android:layout_width="@dimen/_250sdp"
+            android:layout_height="@dimen/_48sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:background="@drawable/shape_edit_login"
+            android:drawableRight="@drawable/ic_baseline_lock_24"
+            android:drawablePadding="20dp"
+            android:ems="10"
+            android:hint="كلمة المرور"
+            android:gravity="right|center"
+            android:inputType="textPassword"
+            android:minHeight="48dp"
+            android:paddingRight="@dimen/_15sdp"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="@+id/edEmailLogin"
+            app:layout_constraintStart_toStartOf="@+id/edEmailLogin"
+            app:layout_constraintTop_toBottomOf="@+id/edEmailLogin" />
+
+        <LinearLayout
+            android:layout_width="@dimen/_150sdp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/shape_edit_login"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toStartOf="@+id/textView1"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/tvMerchant"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/shape_btn_next"
+                android:gravity="center"
+                android:padding="7dp"
+                android:text=" تاجر "
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_12ssp" />
+
+            <View
+                android:id="@+id/dividerM"
+                android:layout_width="@dimen/_1sdp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.2"
+                android:background="@color/white" />
+
+            <View
+                android:id="@+id/dividerC"
+                android:layout_width="@dimen/_1sdp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.2"
+                android:background="@color/white"
+                android:visibility="invisible" />
+
+            <TextView
+                android:id="@+id/tvCustomer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="7dp"
+                android:text="مستخدم"
+                android:textAllCaps="true"
+                android:textColor="@color/teal_700"
+                android:textSize="@dimen/_12ssp" />
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

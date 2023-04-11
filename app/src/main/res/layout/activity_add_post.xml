@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.Screen_Home.AddPostActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="20dp"
+                app:cardCornerRadius="15dp"
+                app:cardElevation="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rcHomeFragment"
+                        android:layout_width="match_parent"
+                        android:layout_height="250dp"
+                        android:orientation="horizontal"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tvCountImage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="13dp"
+                        android:background="@drawable/shape_bottom_nav"
+                        android:gravity="center"
+                        android:hint="0/0"
+                        android:padding="5dp"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/buttonGellary"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/shape_edit_login"
+                android:drawableRight="@drawable/ic_baseline_add_circle_24"
+                android:drawablePadding="-90dp"
+                android:paddingRight="70dp"
+                android:text="ADD image"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toEndOf="@+id/cardView"
+                app:layout_constraintStart_toStartOf="@+id/cardView"
+                app:layout_constraintTop_toBottomOf="@+id/cardView" />
+
+            <EditText
+                android:id="@+id/edPrice"
+                android:layout_width="0dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/shape_edit_add_post"
+                android:ems="10"
+                android:hint="Price"
+                android:inputType="number"
+                android:paddingLeft="20dp"
+                app:layout_constraintEnd_toEndOf="@+id/edModel"
+                app:layout_constraintStart_toStartOf="@+id/edModel"
+                app:layout_constraintTop_toBottomOf="@+id/edYear" />
+
+            <EditText
+                android:id="@+id/edType"
+                android:layout_width="0dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/shape_edit_add_post"
+                android:ems="10"
+                android:hint="Type"
+                android:inputType="textPersonName"
+                android:paddingLeft="20dp"
+                app:layout_constraintEnd_toEndOf="@+id/edModel"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/edModel"
+                app:layout_constraintTop_toBottomOf="@+id/edPrice" />
+
+            <EditText
+                android:id="@+id/edMileage"
+                android:layout_width="0dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/shape_edit_add_post"
+                android:ems="10"
+                android:hint="Mileage"
+                android:inputType="number"
+                android:paddingLeft="20dp"
+                app:layout_constraintEnd_toEndOf="@+id/edModel"
+                app:layout_constraintStart_toStartOf="@+id/edModel"
+                app:layout_constraintTop_toBottomOf="@+id/edType" />
+
+            <EditText
+                android:id="@+id/edLocation"
+                android:layout_width="0dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/shape_edit_add_post"
+                android:ems="10"
+                android:hint="Your Address"
+                android:inputType="textPersonName"
+                android:paddingLeft="20dp"
+                app:layout_constraintEnd_toEndOf="@+id/edModel"
+                app:layout_constraintStart_toStartOf="@+id/edModel"
+                app:layout_constraintTop_toBottomOf="@+id/edMileage" />
+
+            <EditText
+                android:id="@+id/edDescription"
+                android:layout_width="0dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/shape_edit_add_post"
+                android:ems="10"
+                android:gravity="top"
+                android:hint="Description"
+                android:inputType="textPersonName"
+                android:paddingLeft="20dp"
+                android:paddingTop="23dp"
+                app:layout_constraintEnd_toEndOf="@+id/edModel"
+                app:layout_constraintStart_toStartOf="@+id/edModel"
+                app:layout_constraintTop_toBottomOf="@+id/edLocation" />
+
+            <EditText
+                android:id="@+id/edDors"
+                android:layout_width="150dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/shape_edit_add_post"
+                android:ems="10"
+                android:hint="Number Doors"
+                android:inputType="number"
+                android:paddingLeft="20dp"
+                app:layout_constraintStart_toStartOf="@+id/edDescription"
+                app:layout_constraintTop_toBottomOf="@+id/edDescription" />
+
+            <EditText
+                android:id="@+id/edCylinders"
+                android:layout_width="130dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/shape_edit_add_post"
+                android:ems="10"
+                android:hint="Cylinders"
+                android:inputType="number"
+                android:paddingLeft="20dp"
+                app:layout_constraintEnd_toEndOf="@+id/edDescription"
+                app:layout_constraintTop_toBottomOf="@+id/edDescription" />
+
+            <EditText
+                android:id="@+id/edYear"
+                android:layout_width="0dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/shape_edit_add_post"
+                android:ems="10"
+                android:hint="Year"
+                android:inputType="number"
+                android:paddingLeft="20dp"
+                app:layout_constraintEnd_toEndOf="@+id/edPrice"
+                app:layout_constraintStart_toStartOf="@+id/edModel"
+                app:layout_constraintTop_toBottomOf="@+id/edModel" />
+
+            <EditText
+                android:id="@+id/edModel"
+                android:layout_width="0dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="50dp"
+                android:background="@drawable/shape_edit_add_post"
+                android:ems="10"
+                android:hint="Model"
+                android:inputType="textPersonName"
+                android:paddingLeft="20dp"
+                app:layout_constraintEnd_toEndOf="@+id/buttonGellary"
+                app:layout_constraintStart_toStartOf="@+id/buttonGellary"
+                app:layout_constraintTop_toBottomOf="@+id/buttonGellary" />
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="Transmission"
+                android:textColor="@color/black"
+                android:textSize="25sp"
+                app:layout_constraintStart_toStartOf="@+id/edDors"
+                app:layout_constraintTop_toBottomOf="@+id/edDors" />
+
+            <TextView
+                android:id="@+id/textView13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="Full"
+                android:textColor="@color/black"
+                android:textSize="25sp"
+                app:layout_constraintStart_toStartOf="@+id/radioGroup3"
+                app:layout_constraintTop_toBottomOf="@+id/radioGroup3" />
+
+            <RadioGroup
+                android:id="@+id/radioGroup3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:orientation="horizontal"
+                app:layout_constraintStart_toStartOf="@+id/textView12"
+                app:layout_constraintTop_toBottomOf="@+id/textView12">
+
+                <RadioButton
+                    android:id="@+id/radioManual"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="manual"
+                    android:textSize="16sp" />
+
+                <RadioButton
+                    android:id="@+id/radioAutomatic"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:text="automatic"
+                    android:textSize="16sp" />
+            </RadioGroup>
+
+            <RadioGroup
+                android:id="@+id/radioGroup5"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_150sdp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="@dimen/_30sdp"
+                android:orientation="horizontal"
+                app:flow_wrapMode="chain2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/textView13"
+                app:layout_constraintTop_toBottomOf="@+id/textView13">
+
+                <RadioButton
+                    android:id="@+id/radioSolar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="diesel"
+                    android:textSize="16sp" />
+
+                <RadioButton
+                    android:id="@+id/radioPetrol"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:text="petrol"
+                    android:textSize="16sp" />
+
+                <RadioButton
+                    android:id="@+id/radioElectric"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:text="electric"
+                    android:textSize="16sp" />
+
+                <RadioButton
+                    android:id="@+id/radioHybrid"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:text="hybrid"
+                    android:textSize="16sp" />
+            </RadioGroup>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/button"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_20sdp"
+                android:background="@drawable/shape_btn_add_post"
+                android:padding="@dimen/_10sdp"
+                android:text="Add post"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_15ssp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/radioGroup5" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</FrameLayout>
