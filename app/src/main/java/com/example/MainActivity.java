@@ -48,7 +48,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     void Animation() {
-
         binding.imageViewIcon.startAnimation(AnimationUtils.loadAnimation(MainActivity.this, R.anim.lefttoright));
         binding.imageViewTop.startAnimation(AnimationUtils.loadAnimation(MainActivity.this, R.anim.fadein));
         binding.imageViewBottom.startAnimation(AnimationUtils.loadAnimation(MainActivity.this, R.anim.fadein));
