@@ -1,5 +1,6 @@
 package com.example.Screen_Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -8,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.Screen_Home.ProfileActivity;
 import com.example.projectcar.databinding.FragmentMoreBinding;
 
 
@@ -61,6 +63,9 @@ public class MoreFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = FragmentMoreBinding.inflate(inflater);
+        binding.cardViewProfile.setOnClickListener(v -> {
+            startActivity(new Intent(getActivity(), ProfileActivity.class));
+        });
         return binding.getRoot();
     }
 }
