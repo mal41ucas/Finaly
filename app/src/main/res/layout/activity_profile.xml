@@ -37,7 +37,7 @@
             <ImageView
                 android:id="@+id/imgUserProfile"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_230sdp"
+                android:layout_height="@dimen/_270sdp"
                 android:scaleType="centerCrop"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -84,7 +84,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="50dp"
-        android:layout_marginBottom="80dp"
+        android:layout_marginBottom="30dp"
         android:background="@drawable/shape_data_profile"
         app:layout_constraintBottom_toBottomOf="@+id/imgActivity"
         app:layout_constraintEnd_toEndOf="@+id/cardImgProfile"

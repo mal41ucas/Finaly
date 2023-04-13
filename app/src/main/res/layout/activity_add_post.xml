@@ -73,7 +73,7 @@
                 android:drawableRight="@drawable/ic_baseline_add_circle_24"
                 android:drawablePadding="-90dp"
                 android:paddingRight="70dp"
-                android:text="ADD image"
+                android:text="إضافة صورة"
                 android:textColor="@color/black"
                 app:layout_constraintEnd_toEndOf="@+id/cardView"
                 app:layout_constraintStart_toStartOf="@+id/cardView"
@@ -86,9 +86,9 @@
                 android:layout_marginTop="15dp"
                 android:background="@drawable/shape_edit_add_post"
                 android:ems="10"
-                android:hint="Price"
+                android:hint="السعر"
                 android:inputType="number"
-                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
                 app:layout_constraintEnd_toEndOf="@+id/edModel"
                 app:layout_constraintStart_toStartOf="@+id/edModel"
                 app:layout_constraintTop_toBottomOf="@+id/edYear" />
@@ -100,9 +100,9 @@
                 android:layout_marginTop="15dp"
                 android:background="@drawable/shape_edit_add_post"
                 android:ems="10"
-                android:hint="Type"
+                android:hint="النوع"
                 android:inputType="textPersonName"
-                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
                 app:layout_constraintEnd_toEndOf="@+id/edModel"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/edModel"
@@ -115,9 +115,9 @@
                 android:layout_marginTop="15dp"
                 android:background="@drawable/shape_edit_add_post"
                 android:ems="10"
-                android:hint="Mileage"
+                android:hint="عدد الاميال"
                 android:inputType="number"
-                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
                 app:layout_constraintEnd_toEndOf="@+id/edModel"
                 app:layout_constraintStart_toStartOf="@+id/edModel"
                 app:layout_constraintTop_toBottomOf="@+id/edType" />
@@ -129,9 +129,9 @@
                 android:layout_marginTop="15dp"
                 android:background="@drawable/shape_edit_add_post"
                 android:ems="10"
-                android:hint="Your Address"
+                android:hint="العنوان"
                 android:inputType="textPersonName"
-                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
                 app:layout_constraintEnd_toEndOf="@+id/edModel"
                 app:layout_constraintStart_toStartOf="@+id/edModel"
                 app:layout_constraintTop_toBottomOf="@+id/edMileage" />
@@ -144,9 +144,9 @@
                 android:background="@drawable/shape_edit_add_post"
                 android:ems="10"
                 android:gravity="top"
-                android:hint="Description"
+                android:hint="التفاصيل"
                 android:inputType="textPersonName"
-                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
                 android:paddingTop="23dp"
                 app:layout_constraintEnd_toEndOf="@+id/edModel"
                 app:layout_constraintStart_toStartOf="@+id/edModel"
@@ -159,9 +159,9 @@
                 android:layout_marginTop="20dp"
                 android:background="@drawable/shape_edit_add_post"
                 android:ems="10"
-                android:hint="Number Doors"
+                android:hint="عدد الأبواب"
                 android:inputType="number"
-                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
                 app:layout_constraintStart_toStartOf="@+id/edDescription"
                 app:layout_constraintTop_toBottomOf="@+id/edDescription" />
 
@@ -172,9 +172,9 @@
                 android:layout_marginTop="20dp"
                 android:background="@drawable/shape_edit_add_post"
                 android:ems="10"
-                android:hint="Cylinders"
+                android:hint="الاسطوانات"
                 android:inputType="number"
-                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
                 app:layout_constraintEnd_toEndOf="@+id/edDescription"
                 app:layout_constraintTop_toBottomOf="@+id/edDescription" />
 
@@ -185,9 +185,9 @@
                 android:layout_marginTop="15dp"
                 android:background="@drawable/shape_edit_add_post"
                 android:ems="10"
-                android:hint="Year"
+                android:hint="السنة"
                 android:inputType="number"
-                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
                 app:layout_constraintEnd_toEndOf="@+id/edPrice"
                 app:layout_constraintStart_toStartOf="@+id/edModel"
                 app:layout_constraintTop_toBottomOf="@+id/edModel" />
@@ -199,9 +199,9 @@
                 android:layout_marginTop="50dp"
                 android:background="@drawable/shape_edit_add_post"
                 android:ems="10"
-                android:hint="Model"
+                android:hint="الموديل"
                 android:inputType="textPersonName"
-                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
                 app:layout_constraintEnd_toEndOf="@+id/buttonGellary"
                 app:layout_constraintStart_toStartOf="@+id/buttonGellary"
                 app:layout_constraintTop_toBottomOf="@+id/buttonGellary" />
@@ -211,7 +211,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
-                android:text="Transmission"
+                android:text="الانتقال"
                 android:textColor="@color/black"
                 android:textSize="25sp"
                 app:layout_constraintStart_toStartOf="@+id/edDors"
@@ -222,7 +222,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
-                android:text="Full"
+                android:text="ممتلىء"
                 android:textColor="@color/black"
                 android:textSize="25sp"
                 app:layout_constraintStart_toStartOf="@+id/radioGroup3"
@@ -241,7 +241,7 @@
                     android:id="@+id/radioManual"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="manual"
+                    android:text="يدوي"
                     android:textSize="16sp" />
 
                 <RadioButton
@@ -249,7 +249,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
-                    android:text="automatic"
+                    android:text="تلقائي"
                     android:textSize="16sp" />
             </RadioGroup>
 
@@ -266,10 +266,10 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView13">
 
                 <RadioButton
-                    android:id="@+id/radioSolar"
+                    android:id="@+id/radioDiesel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="diesel"
+                    android:text="ديزل"
                     android:textSize="16sp" />
 
                 <RadioButton
@@ -277,7 +277,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
-                    android:text="petrol"
+                    android:text="بنزين"
                     android:textSize="16sp" />
 
                 <RadioButton
@@ -285,7 +285,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
-                    android:text="electric"
+                    android:text="كهربائي"
                     android:textSize="16sp" />
 
                 <RadioButton
@@ -293,7 +293,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
-                    android:text="hybrid"
+                    android:text="هجين"
                     android:textSize="16sp" />
             </RadioGroup>
 
@@ -302,9 +302,9 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_20sdp"
-                android:background="@drawable/shape_btn_add_post"
+                android:backgroundTint="#098176"
                 android:padding="@dimen/_10sdp"
-                android:text="Add post"
+                android:text="إضافة المنشور"
                 android:textColor="@color/white"
                 android:textSize="@dimen/_15ssp"
                 app:layout_constraintBottom_toBottomOf="parent"
