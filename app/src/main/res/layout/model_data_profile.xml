@@ -16,13 +16,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:id="@+id/imageView8"
-            android:layout_width="match_parent"
-            android:layout_height="350dp"
-            android:scaleType="centerCrop"
-            app:srcCompat="@drawable/profile_dialoge" />
-
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -52,10 +45,10 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="5dp"
-                        android:layout_marginTop="40dp"
+                        android:layout_marginTop="20dp"
                         android:ems="10"
-                        android:hint="الاسم الاول"
                         android:gravity="right"
+                        android:hint="الاسم الاول"
                         android:inputType="textPersonName"
                         android:minHeight="48dp"
                         android:textColor="#2196F3"
@@ -64,10 +57,26 @@
                         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
                     <EditText
+                        android:id="@+id/edEmail"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:ems="10"
+                        android:gravity="right"
+                        android:hint="البريد"
+                        android:inputType="text"
+                        android:minHeight="48dp"
+                        android:textColor="#2196F3"
+                        app:layout_constraintEnd_toEndOf="@+id/edFirstName"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="@+id/edFirstName"
+                        app:layout_constraintTop_toBottomOf="@+id/edLastName" />
+
+                    <EditText
                         android:id="@+id/edLastName"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="25dp"
+                        android:layout_marginTop="15dp"
                         android:ems="10"
                         android:gravity="right"
                         android:hint="الاسم الاخير"
@@ -83,23 +92,23 @@
                         android:id="@+id/edPhoneNumber"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="25dp"
+                        android:layout_marginTop="15dp"
                         android:ems="10"
                         android:gravity="right"
                         android:hint="رقم الهاتف"
                         android:inputType="number"
                         android:minHeight="48dp"
                         android:textColor="#2196F3"
-                        app:layout_constraintEnd_toEndOf="@+id/edLastName"
+                        app:layout_constraintEnd_toEndOf="@+id/edEmail"
                         app:layout_constraintHorizontal_bias="0.0"
-                        app:layout_constraintStart_toStartOf="@+id/edLastName"
-                        app:layout_constraintTop_toBottomOf="@+id/edLastName" />
+                        app:layout_constraintStart_toStartOf="@+id/edEmail"
+                        app:layout_constraintTop_toBottomOf="@+id/edEmail" />
 
                     <EditText
                         android:id="@+id/edPasswordEdit"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="25dp"
+                        android:layout_marginTop="15dp"
                         android:ems="10"
                         android:gravity="right"
                         android:hint="كلمة المرور"
@@ -115,7 +124,7 @@
                         android:id="@+id/edPasswordConfirmEdit"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="25dp"
+                        android:layout_marginTop="15dp"
                         android:ems="10"
                         android:gravity="right"
                         android:hint="تأكيد كلمة المرور"

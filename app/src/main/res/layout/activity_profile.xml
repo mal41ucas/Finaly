@@ -6,151 +6,156 @@
     android:layout_height="match_parent"
     tools:context="com.example.Screen_Home.ProfileActivity">
 
-    <ImageView
-        android:id="@+id/imgActivity"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="centerCrop"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/profile" />
-
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardImgProfile"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="20dp"
-        app:cardCornerRadius="@dimen/_15sdp"
-        app:cardElevation="@dimen/_17sdp"
+        android:id="@+id/cardView3"
+        android:layout_width="370dp"
+        android:layout_height="270dp"
+        android:layout_marginTop="20dp"
+        app:cardCornerRadius="15dp"
+        app:cardElevation="@dimen/_10sdp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <ImageView
-                android:id="@+id/imgUserProfile"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_270sdp"
-                android:scaleType="centerCrop"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/profile" />
-
-            <LinearLayout
-                android:id="@+id/editPhoto"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="25dp"
-                android:layout_marginBottom="@dimen/_12sdp"
-                android:background="@drawable/shape_edit_photo"
-                android:orientation="horizontal"
-                android:paddingRight="@dimen/_15sdp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent">
-
-                <ImageView
-                    android:id="@+id/imageView10"
-                    android:layout_width="@dimen/_22sdp"
-                    android:layout_height="@dimen/_22sdp"
-                    android:layout_marginLeft="@dimen/_5sdp"
-                    android:layout_weight="1"
-                    app:srcCompat="@drawable/photo" />
-
-                <TextView
-                    android:id="@+id/tvEditPicture"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="@dimen/_5sdp"
-                    android:text="تعديل الصورة"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/_12ssp" />
-            </LinearLayout>
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </androidx.cardview.widget.CardView>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/dataProfile"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginBottom="30dp"
-        android:background="@drawable/shape_data_profile"
-        app:layout_constraintBottom_toBottomOf="@+id/imgActivity"
-        app:layout_constraintEnd_toEndOf="@+id/cardImgProfile"
-        app:layout_constraintStart_toStartOf="@+id/cardImgProfile"
-        app:layout_constraintTop_toBottomOf="@+id/cardImgProfile">
+        app:layout_constraintTop_toTopOf="parent" >
 
         <ImageView
-            android:id="@+id/imgEditProfile"
-            android:layout_width="@dimen/_28sdp"
-            android:layout_height="@dimen/_28sdp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="20dp"
-            android:layout_weight="1"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/baseline_edit_note_24" />
-
-        <TextView
-            android:id="@+id/tvPasswordProfile"
+            android:id="@+id/imgBackground"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:drawableRight="@drawable/ic_baseline_lock_24_profile"
-            android:drawablePadding="@dimen/_10sdp"
-            android:fontFamily="@font/bellota_bold"
-            android:gravity="center_horizontal"
-            android:padding="@dimen/_10sdp"
-            android:text="*************"
-            android:textColor="@color/black"
-            android:textSize="@dimen/_20ssp"
-            app:layout_constraintEnd_toEndOf="@+id/tvPhoneProfile"
-            app:layout_constraintTop_toBottomOf="@+id/tvPhoneProfile" />
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/profile" />
 
-        <TextView
-            android:id="@+id/tvNameUserProfile"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="50dp"
-            android:drawableRight="@drawable/ic_baseline_person_24_profile"
-            android:drawablePadding="@dimen/_10sdp"
-            android:gravity="center_horizontal"
-            android:padding="@dimen/_10sdp"
-            android:text="محمد محمد"
-            android:textColor="@color/black"
-            android:textSize="@dimen/_22ssp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imgEditProfile" />
+        <ImageView
+            android:id="@+id/imgEditUserProfile"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_gravity="right"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginRight="@dimen/_10sdp"
+            app:srcCompat="@drawable/photo" />
+    </androidx.cardview.widget.CardView>
 
-        <TextView
-            android:id="@+id/tvPhoneProfile"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:drawableRight="@drawable/baseline_phone_android_24"
-            android:drawablePadding="@dimen/_10sdp"
-            android:fontFamily="@font/bellota_bold"
-            android:gravity="center_horizontal"
-            android:padding="@dimen/_10sdp"
-            android:text="+970 59 44 55 667"
-            android:textColor="@color/black"
-            android:textSize="@dimen/_20ssp"
-            app:layout_constraintEnd_toEndOf="@+id/tvNameUserProfile"
-            app:layout_constraintTop_toBottomOf="@+id/tvNameUserProfile" />
+    <ImageView
+        android:id="@+id/imgEditPhoto"
+        android:layout_width="@dimen/_40sdp"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_gravity="right|bottom"
+        app:layout_constraintBottom_toBottomOf="@+id/cardView4"
+        app:layout_constraintStart_toEndOf="@+id/cardView4"
+        app:srcCompat="@drawable/photo" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView4"
+        android:layout_width="@dimen/_130sdp"
+        android:layout_height="@dimen/_130sdp"
+        android:layout_marginTop="-70dp"
+        app:cardCornerRadius="@dimen/_100sdp"
+        app:cardElevation="@dimen/_50sdp"
+        app:layout_constraintEnd_toEndOf="@+id/cardView3"
+        app:layout_constraintStart_toStartOf="@+id/cardView3"
+        app:layout_constraintTop_toBottomOf="@+id/cardView3">
 
+        <ImageView
+            android:id="@+id/imgUserProfile"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/profile" />
+    </androidx.cardview.widget.CardView>
+
+    <ImageView
+        android:id="@+id/imgEditProfile"
+        android:layout_width="@dimen/_28sdp"
+        android:layout_height="@dimen/_28sdp"
+
+        android:layout_marginStart="20dp"
+        android:layout_weight="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvNameUserProfile"
+        app:srcCompat="@drawable/baseline_edit_note_24" />
+
+    <TextView
+        android:id="@+id/tvNameUserProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="15dp"
+        android:gravity="center_horizontal"
+        android:padding="@dimen/_10sdp"
+        android:hint="محمد محمد"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_30ssp"
+        app:layout_constraintEnd_toEndOf="@+id/cardView4"
+        app:layout_constraintStart_toStartOf="@+id/cardView4"
+        app:layout_constraintTop_toBottomOf="@+id/cardView4" />
+
+    <TextView
+        android:id="@+id/tvPasswordProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:hint="*************"
+        android:textColor="#2196F3"
+        android:textSize="@dimen/_17ssp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView14"
+        app:layout_constraintEnd_toEndOf="@+id/tvPhoneProfile"
+        app:layout_constraintTop_toTopOf="@+id/textView14" />
+
+    <TextView
+        android:id="@+id/tvPhoneProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:hint="+970 59 44 55 667"
+        android:textColor="#2196F3"
+        android:textSize="@dimen/_17ssp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView11"
+        app:layout_constraintEnd_toEndOf="@+id/tvEmailProfile"
+        app:layout_constraintTop_toTopOf="@+id/textView11" />
+
+    <TextView
+        android:id="@+id/tvEmailProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:hint="email@gaza.ps"
+        android:textColor="#2196F3"
+        android:textSize="@dimen/_18ssp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView10"
+        app:layout_constraintEnd_toStartOf="@+id/textView10"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView10" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="30dp"
+        android:text="البريد   : "
+        android:textColor="@color/black"
+        android:textSize="@dimen/_15ssp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvNameUserProfile" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="الهاتف  : "
+        android:textColor="@color/black"
+        android:textSize="@dimen/_15ssp"
+        app:layout_constraintEnd_toEndOf="@+id/textView10"
+        app:layout_constraintTop_toBottomOf="@+id/textView10" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="كلمة المرور  : "
+        android:textColor="@color/black"
+        android:textSize="@dimen/_15ssp"
+        app:layout_constraintEnd_toEndOf="@+id/textView10"
+        app:layout_constraintTop_toBottomOf="@+id/textView11" />
 </androidx.constraintlayout.widget.ConstraintLayout>

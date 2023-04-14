@@ -30,6 +30,7 @@ public class ProfileActivity extends AppCompatActivity {
 
     ActivityProfileBinding binding;
     private static final int RESULT_LOAD_IMG = 0;
+    String photo = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,11 +38,6 @@ public class ProfileActivity extends AppCompatActivity {
         binding = ActivityProfileBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        binding.cardImgProfile.startAnimation(AnimationUtils.loadAnimation(getBaseContext(),R.anim.fadein));
-        binding.dataProfile.startAnimation(AnimationUtils.loadAnimation(getBaseContext(),R.anim.fadein));
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-            binding.imgActivity.setRenderEffect(RenderEffect.createBlurEffect(60, 60, Shader.TileMode.MIRROR));
-        }
         binding.imgEditProfile.setOnClickListener(v -> {
             AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(ProfileActivity.this);
             View layoutView = getLayoutInflater().inflate(R.layout.model_data_profile, null);
@@ -49,6 +45,7 @@ public class ProfileActivity extends AppCompatActivity {
             Button btnCancel = layoutView.findViewById(R.id.btnCancel);
             TextView edFirstName = layoutView.findViewById(R.id.edFirstName);
             TextView edLastName = layoutView.findViewById(R.id.edLastName);
+            TextView edEmail = layoutView.findViewById(R.id.edEmail);
             TextView edPhoneNumber = layoutView.findViewById(R.id.edPhoneNumber);
             TextView edPasswordEdit = layoutView.findViewById(R.id.edPasswordEdit);
             TextView edPasswordConfirmEdit = layoutView.findViewById(R.id.edPasswordConfirmEdit);
@@ -60,25 +57,30 @@ public class ProfileActivity extends AppCompatActivity {
                 if (!TextUtils.isEmpty(edFirstName.getText().toString())) {
                     if (!TextUtils.isEmpty(edLastName.getText().toString())) {
                         if (!TextUtils.isEmpty(edPhoneNumber.getText().toString())) {
-                            if (edPhoneNumber.getText().toString().length() == 10) {
-                                if (!TextUtils.isEmpty(edPasswordEdit.getText().toString()) && edPasswordEdit.getText().toString().length() >= 6) {
-                                    if (edPasswordEdit.getText().toString().equals(edPasswordConfirmEdit.getText().toString())) {
-                                        binding.tvNameUserProfile.setText(edFirstName.getText().toString()
-                                                + " " + edLastName.getText().toString());
-                                        binding.tvPhoneProfile.setText(edPhoneNumber.getText().toString());
-                                        binding.tvPasswordProfile.setText(edPasswordEdit.getText().toString());
-                                        alertDialog.dismiss();
+                            if (!TextUtils.isEmpty(edEmail.getText().toString())) {
+                                if (edPhoneNumber.getText().toString().length() == 10) {
+                                    if (!TextUtils.isEmpty(edPasswordEdit.getText().toString()) && edPasswordEdit.getText().toString().length() >= 6) {
+                                        if (edPasswordEdit.getText().toString().equals(edPasswordConfirmEdit.getText().toString())) {
+                                            binding.tvNameUserProfile.setText(edFirstName.getText().toString()
+                                                    + " " + edLastName.getText().toString());
+                                            binding.tvEmailProfile.setText(edEmail.getText().toString());
+                                            binding.tvPhoneProfile.setText(edPhoneNumber.getText().toString());
+                                            binding.tvPasswordProfile.setText(edPasswordEdit.getText().toString());
+                                            alertDialog.dismiss();
+                                        } else {
+                                            Toast.makeText(this, "كلمة المرور ليست متطابقة", Toast.LENGTH_SHORT).show();
+                                        }
                                     } else {
-                                        Toast.makeText(this, "كلمة المرور ليست متطابقة", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(this, "أدخل كلمة المرور 6 حروف على الأقل", Toast.LENGTH_SHORT).show();
                                     }
                                 } else {
-                                    Toast.makeText(this, "أدخل كلمة المرور 6 حروف على الأقل", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(this, "يجب ان يكون رقم الهاتف 10 أرقام", Toast.LENGTH_SHORT).show();
                                 }
                             } else {
-                                Toast.makeText(this, "يجب ان يكون رقم الهاتف 10 أرقام", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(this, "أدخل رقم الهاتف", Toast.LENGTH_SHORT).show();
                             }
                         } else {
-                            Toast.makeText(this, "أدخل رقم الهاتف", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(this, "ادخل البريد", Toast.LENGTH_SHORT).show();
                         }
                     } else {
                         Toast.makeText(this, "أدخل الإسم الأخير", Toast.LENGTH_SHORT).show();
@@ -96,10 +98,16 @@ public class ProfileActivity extends AppCompatActivity {
             alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
             alertDialog.show();
         });
-
-        binding.editPhoto.setOnClickListener(v -> {
+        binding.imgEditPhoto.setOnClickListener(v -> {
             Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
             photoPickerIntent.setType("image/*");
+            photo = "small";
+            startActivityForResult(photoPickerIntent, RESULT_LOAD_IMG);
+        });
+        binding.imgEditUserProfile.setOnClickListener(v -> {
+            Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
+            photoPickerIntent.setType("image/*");
+            photo = "big";
             startActivityForResult(photoPickerIntent, RESULT_LOAD_IMG);
         });
     }
@@ -113,8 +121,11 @@ public class ProfileActivity extends AppCompatActivity {
                 final Uri imageUri = data.getData();
                 final InputStream imageStream = getContentResolver().openInputStream(imageUri);
                 final Bitmap selectedImage = BitmapFactory.decodeStream(imageStream);
-                binding.imgUserProfile.setImageBitmap(selectedImage);
-                binding.imgActivity.setImageBitmap(selectedImage);
+                if (photo.equals("small")) {
+                    binding.imgUserProfile.setImageBitmap(selectedImage);
+                } else if (photo.equals("big")) {
+                    binding.imgBackground.setImageBitmap(selectedImage);
+                }
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
                 Toast.makeText(ProfileActivity.this, "حدث خطأ ما", Toast.LENGTH_LONG).show();
