@@ -84,7 +84,8 @@
                 android:layout_marginEnd="15dp"
                 android:text="محمد محمد"
                 android:textColor="#3F51B5"
-                android:textSize="@dimen/_26ssp"
+                android:textSize="@dimen/_20ssp"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toStartOf="@+id/imageView5"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -95,7 +96,7 @@
                 android:layout_marginTop="@dimen/_1sdp"
                 android:text="عرض الملف الشخصي"
                 android:textColor="#978F8F"
-                android:textSize="@dimen/_12ssp"
+                android:textSize="@dimen/_10ssp"
                 app:layout_constraintEnd_toEndOf="@+id/tvNameUser"
                 app:layout_constraintTop_toBottomOf="@+id/tvNameUser" />
 
