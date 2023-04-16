@@ -11,6 +11,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.Toast;
 
 import com.example.Screen_Home.HomeActivity;
+import com.example.Screen_Home.ViewCarsActivity;
 import com.example.projectcar.R;
 import com.example.projectcar.databinding.ActivityLoginBinding;
 
@@ -39,6 +40,10 @@ public class LoginActivity extends AppCompatActivity {
 
         binding.btnSignUp.setOnClickListener(view -> {
             startActivity(new Intent(getBaseContext(), RegisterActivity.class));
+        });
+
+        binding.btnGuest.setOnClickListener(view -> {
+            startActivity(new Intent(getBaseContext(), ViewCarsActivity.class));
         });
         Animation();
         selectAccount();
