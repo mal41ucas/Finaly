@@ -1,15 +1,27 @@
 package com.example.Screen_Fragment;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.Screen_Home.MyCarsActivity;
 import com.example.Screen_Home.ProfileActivity;
+import com.example.Screen_Home.SettingsActivity;
+import com.example.Screen_Login_Register.LoginActivity;
+import com.example.projectcar.R;
 import com.example.projectcar.databinding.FragmentMoreBinding;
 
 
@@ -65,6 +77,42 @@ public class MoreFragment extends Fragment {
         binding = FragmentMoreBinding.inflate(inflater);
         binding.cardViewProfile.setOnClickListener(v -> {
             startActivity(new Intent(getActivity(), ProfileActivity.class));
+            getActivity().overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+        });
+        binding.clickMyCars.setOnClickListener(v -> {
+            startActivity(new Intent(getActivity(), MyCarsActivity.class));
+            getActivity().overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+        });
+        binding.clickSettings.setOnClickListener(v -> {
+            startActivity(new Intent(getActivity(), SettingsActivity.class));
+            getActivity().overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+        });
+        binding.clickPrivacy.setOnClickListener(v -> {
+//            startActivity(new Intent(getActivity(),));
+            getActivity().overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+        });
+        binding.btnSignOut.setOnClickListener(v -> {
+            AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(getActivity());
+            View layoutView = getLayoutInflater().inflate(R.layout.signout_dialog, null);
+            TextView out = layoutView.findViewById(R.id.btnSignOutDialoge);
+            TextView close = layoutView.findViewById(R.id.btnClose);
+            dialogBuilder.setView(layoutView);
+            AlertDialog alertDialog = dialogBuilder.create();
+            alertDialog.setCancelable(false);
+
+            out.setOnClickListener(view -> {
+                startActivity(new Intent(getActivity(), LoginActivity.class));
+                getActivity().overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+                getActivity().finishAffinity();
+            });
+            close.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    alertDialog.dismiss();
+                }
+            });
+            alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+            alertDialog.show();
         });
         return binding.getRoot();
     }

@@ -60,6 +60,7 @@ public class IntroductionActivity extends AppCompatActivity {
                 startActivity(new Intent(getBaseContext(),LoginActivity.class));
                 editor.putString("read","yes");
                 editor.apply();
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                 finishAffinity();
             }
         });

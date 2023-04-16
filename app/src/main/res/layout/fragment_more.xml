@@ -199,11 +199,11 @@
         android:textSize="@dimen/_18ssp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView7"
         app:layout_constraintEnd_toStartOf="@+id/imageView7"
-        app:layout_constraintStart_toEndOf="@+id/imageView8"
+        app:layout_constraintStart_toEndOf="@+id/clickPrivacy"
         app:layout_constraintTop_toTopOf="@+id/imageView7" />
 
     <ImageView
-        android:id="@+id/imageView8"
+        android:id="@+id/clickPrivacy"
         android:layout_width="@dimen/_14sdp"
         android:layout_height="@dimen/_14sdp"
         android:src="@drawable/baseline_arrow_back_ios_24_profile"
@@ -212,7 +212,7 @@
         app:layout_constraintTop_toTopOf="@+id/textView7" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/button2"
+        android:id="@+id/btnSignOut"
         android:layout_width="0dp"
         android:layout_height="@dimen/_50sdp"
         android:layout_marginStart="@dimen/_40sdp"
