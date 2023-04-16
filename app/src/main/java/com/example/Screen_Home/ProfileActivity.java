@@ -98,7 +98,7 @@ public class ProfileActivity extends AppCompatActivity {
             alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
             alertDialog.show();
         });
-        binding.imgEditPhoto.setOnClickListener(v -> {
+        binding.imgEditPhotoUser.setOnClickListener(v -> {
             Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
             photoPickerIntent.setType("image/*");
             photo = "small";
