@@ -86,7 +86,7 @@
                 android:layout_marginTop="15dp"
                 android:background="@drawable/shape_edit_add_post"
                 android:ems="10"
-                android:hint="السعر"
+                android:hint="السعر - (دولار)"
                 android:inputType="number"
                 android:paddingRight="20dp"
                 app:layout_constraintEnd_toEndOf="@+id/edModel"
@@ -115,7 +115,7 @@
                 android:layout_marginTop="15dp"
                 android:background="@drawable/shape_edit_add_post"
                 android:ems="10"
-                android:hint="عدد الاميال"
+                android:hint="عدد الكيلومترات"
                 android:inputType="number"
                 android:paddingRight="20dp"
                 app:layout_constraintEnd_toEndOf="@+id/edModel"
@@ -211,9 +211,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
-                android:text="الانتقال"
+                android:text="ناقل الحركة"
                 android:textColor="@color/black"
-                android:textSize="25sp"
+                android:textSize="@dimen/_20ssp"
                 app:layout_constraintStart_toStartOf="@+id/edDors"
                 app:layout_constraintTop_toBottomOf="@+id/edDors" />
 
@@ -222,9 +222,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
-                android:text="ممتلىء"
+                android:text="نوع الوقود"
                 android:textColor="@color/black"
-                android:textSize="25sp"
+                android:textSize="@dimen/_20ssp"
                 app:layout_constraintStart_toStartOf="@+id/radioGroup3"
                 app:layout_constraintTop_toBottomOf="@+id/radioGroup3" />
 
@@ -249,7 +249,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
-                    android:text="تلقائي"
+                    android:text="اوتوماتيك"
                     android:textSize="16sp" />
             </RadioGroup>
 
