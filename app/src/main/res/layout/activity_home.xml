@@ -41,8 +41,8 @@
 
         <ImageView
             android:id="@+id/imageAddPost"
-            android:layout_width="@dimen/_53sdp"
-            android:layout_height="@dimen/_53sdp"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_50sdp"
             app:srcCompat="@drawable/button" />
     </androidx.cardview.widget.CardView>
 
