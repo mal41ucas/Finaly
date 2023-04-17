@@ -98,14 +98,15 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/tvPriceCar" />
 
-            <ImageView
-                android:id="@+id/imgFavoriteCar"
+            <CheckBox
+                android:id="@+id/checkboxFavoriteCar"
                 android:layout_width="@dimen/_40sdp"
                 android:layout_height="@dimen/_40sdp"
                 android:layout_marginTop="@dimen/_30sdp"
+                android:checked="false"
+                android:foreground="@drawable/favorite_un_checked_24"
                 app:layout_constraintStart_toStartOf="@+id/cardView"
-                app:layout_constraintTop_toBottomOf="@+id/cardView"
-                app:srcCompat="@drawable/favorite" />
+                app:layout_constraintTop_toBottomOf="@+id/cardView" />
 
             <View
                 android:id="@+id/divider5"
@@ -277,8 +278,7 @@
                 android:background="#00000000"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/divider6"
-                app:layout_constraintStart_toStartOf="@+id/divider5"
-                app:layout_constraintTop_toBottomOf="@+id/imgCallUser" />
+                app:layout_constraintStart_toStartOf="@+id/divider5"/>
 
             <ImageView
                 android:id="@+id/imageView11"
@@ -322,16 +322,23 @@
                 app:layout_constraintStart_toEndOf="@+id/imageView14"
                 app:layout_constraintTop_toTopOf="@+id/imageView14" />
 
-            <ImageView
-                android:id="@+id/imgCallUser"
-                android:layout_width="@dimen/_40sdp"
-                android:layout_height="@dimen/_40sdp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/divider11"
-                app:layout_constraintTop_toBottomOf="@+id/tvLocation"
-                app:srcCompat="@drawable/telephone" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fABCall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:layout_marginEnd="@dimen/_18sdp"
+        android:layout_marginBottom="@dimen/_25sdp"
+        android:foregroundGravity="bottom|right"
+        app:fabSize="normal"
+        android:backgroundTint="@color/teal_200"
+        android:elevation="@dimen/_15sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/baseline_phone_enabled_24" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
