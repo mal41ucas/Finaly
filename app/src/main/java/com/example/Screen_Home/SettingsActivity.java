@@ -41,6 +41,10 @@ public class SettingsActivity extends AppCompatActivity {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
             }
         });
+
+        binding.tvBack.setOnClickListener(v -> {
+
+        });
     }
 
     @Override

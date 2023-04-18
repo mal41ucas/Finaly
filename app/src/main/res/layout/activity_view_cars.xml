@@ -71,8 +71,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
                 android:hint="إسم السيارة"
-                android:textColor="@color/black"
-                android:textSize="@dimen/_20ssp"
+                android:textColor="#2196F3"
+                android:textSize="@dimen/_18ssp"
                 app:layout_constraintEnd_toEndOf="@+id/cardView"
                 app:layout_constraintTop_toBottomOf="@+id/cardView" />
 
@@ -81,22 +81,24 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:hint="سعر السيارة"
-                android:textColor="#2196F3"
-                android:textSize="@dimen/_20ssp"
+                android:hint="$2000"
+                android:textColor="#009688"
+                android:textSize="@dimen/_18ssp"
                 app:layout_constraintEnd_toEndOf="@+id/tvNameCar"
+                app:layout_constraintStart_toStartOf="@+id/tvNameCar"
                 app:layout_constraintTop_toBottomOf="@+id/tvNameCar" />
 
             <TextView
                 android:id="@+id/tvDateTime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:hint="12/10/2023"
                 android:textColor="#EC3023"
-                app:layout_constraintBottom_toBottomOf="@+id/tvPriceCar"
-                app:layout_constraintEnd_toStartOf="@+id/tvPriceCar"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/tvPriceCar" />
+                android:textSize="@dimen/_14ssp"
+                app:layout_constraintEnd_toEndOf="@+id/tvPriceCar"
+                app:layout_constraintStart_toStartOf="@+id/tvPriceCar"
+                app:layout_constraintTop_toBottomOf="@+id/tvPriceCar" />
 
             <CheckBox
                 android:id="@+id/checkboxFavoriteCar"
@@ -111,26 +113,50 @@
             <View
                 android:id="@+id/divider5"
                 android:layout_width="0dp"
-                android:layout_height="0.8dp"
-                android:layout_marginStart="20dp"
+                android:layout_height="0.7dp"
+                android:layout_marginStart="30dp"
                 android:layout_marginEnd="20dp"
-                android:background="@color/black"
+                android:background="#9E9999"
                 app:layout_constraintBottom_toBottomOf="@+id/textView23"
                 app:layout_constraintEnd_toStartOf="@+id/textView23"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/textView23" />
 
             <View
+                android:id="@+id/divider12"
+                android:layout_width="0dp"
+                android:layout_height="0.7dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="20dp"
+                android:background="#9E9999"
+                app:layout_constraintBottom_toBottomOf="@+id/textView18"
+                app:layout_constraintEnd_toStartOf="@+id/textView18"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/textView18" />
+
+            <View
                 android:id="@+id/divider6"
                 android:layout_width="0dp"
-                android:layout_height="0.8dp"
+                android:layout_height="0.7dp"
                 android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
-                android:background="@color/black"
+                android:layout_marginEnd="30dp"
+                android:background="#9E9999"
                 app:layout_constraintBottom_toBottomOf="@+id/textView23"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/textView23"
                 app:layout_constraintTop_toTopOf="@+id/textView23" />
+
+            <View
+                android:id="@+id/divider13"
+                android:layout_width="0dp"
+                android:layout_height="0.7dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="30dp"
+                android:background="#9E9999"
+                app:layout_constraintBottom_toBottomOf="@+id/textView18"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/textView18"
+                app:layout_constraintTop_toTopOf="@+id/textView18" />
 
             <TextView
                 android:id="@+id/textView23"
@@ -145,12 +171,24 @@
                 app:layout_constraintTop_toBottomOf="@+id/tvDateTime" />
 
             <TextView
+                android:id="@+id/textView18"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="التفاصيل"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_20ssp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvDeatilsCar" />
+
+            <TextView
                 android:id="@+id/tvDeatilsCar"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:gravity="right"
-                android:hint="التفاصيل"
+                android:hint="الوصـف"
                 android:textColor="#2196F3"
                 android:textSize="@dimen/_15ssp"
                 app:layout_constraintEnd_toEndOf="@+id/divider6"
@@ -158,62 +196,52 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView23" />
 
             <View
-                android:id="@+id/divider7"
-                android:layout_width="0dp"
-                android:layout_height="0.8dp"
-                android:layout_marginTop="@dimen/_20sdp"
-                android:background="@color/black"
-                app:layout_constraintEnd_toEndOf="@+id/divider6"
-                app:layout_constraintStart_toStartOf="@+id/divider5"
-                app:layout_constraintTop_toBottomOf="@+id/tvDeatilsCar" />
-
-            <View
                 android:id="@+id/divider8"
                 android:layout_width="0dp"
-                android:layout_height="0.8dp"
+                android:layout_height="0.7dp"
                 android:layout_marginTop="20dp"
-                android:background="@color/black"
-                app:layout_constraintEnd_toEndOf="@+id/divider6"
-                app:layout_constraintStart_toStartOf="@+id/divider5"
+                android:background="#BDBCBB"
+                app:layout_constraintEnd_toEndOf="@+id/divider13"
+                app:layout_constraintStart_toStartOf="@+id/divider12"
                 app:layout_constraintTop_toBottomOf="@+id/imageView8" />
 
             <ImageView
                 android:id="@+id/imageView8"
-                android:layout_width="@dimen/_40sdp"
-                android:layout_height="@dimen/_40sdp"
-                android:layout_marginTop="20dp"
-                app:layout_constraintStart_toStartOf="@+id/divider7"
-                app:layout_constraintTop_toBottomOf="@+id/divider7"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_marginTop="50dp"
+                app:layout_constraintEnd_toEndOf="@+id/divider13"
+                app:layout_constraintTop_toBottomOf="@+id/textView18"
                 app:srcCompat="@drawable/meter" />
 
             <TextView
                 android:id="@+id/tvSpeedCar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="80dp"
                 android:hint="55.5s"
-                android:textColor="@color/black"
-                android:textSize="@dimen/_17ssp"
+                android:textColor="#E30A0A"
+                android:textSize="@dimen/_15ssp"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView8"
-                app:layout_constraintStart_toEndOf="@+id/imageView8"
+                app:layout_constraintEnd_toEndOf="@+id/tvGear"
+                app:layout_constraintStart_toStartOf="@+id/tvGear"
                 app:layout_constraintTop_toTopOf="@+id/imageView8" />
 
             <View
                 android:id="@+id/divider9"
                 android:layout_width="0dp"
-                android:layout_height="0.8dp"
+                android:layout_height="0.7dp"
                 android:layout_marginTop="20dp"
-                android:background="@color/black"
-                app:layout_constraintEnd_toEndOf="@+id/divider6"
-                app:layout_constraintStart_toStartOf="@+id/divider5"
+                android:background="#BDBCBB"
+                app:layout_constraintEnd_toEndOf="@+id/divider8"
+                app:layout_constraintStart_toStartOf="@+id/divider8"
                 app:layout_constraintTop_toBottomOf="@+id/imageView9" />
 
             <ImageView
                 android:id="@+id/imageView9"
-                android:layout_width="@dimen/_40sdp"
-                android:layout_height="@dimen/_40sdp"
+                android:layout_width="@dimen/_32sdp"
+                android:layout_height="@dimen/_32sdp"
                 android:layout_marginTop="20dp"
-                app:layout_constraintStart_toStartOf="@+id/divider7"
+                app:layout_constraintEnd_toEndOf="@+id/imageView8"
                 app:layout_constraintTop_toBottomOf="@+id/divider8"
                 app:srcCompat="@drawable/gear" />
 
@@ -221,30 +249,30 @@
                 android:id="@+id/tvGear"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="80dp"
                 android:hint="اوتوماتيك"
-                android:textColor="@color/black"
-                android:textSize="@dimen/_17ssp"
+                android:textColor="#3AAA3E"
+                android:textSize="@dimen/_15ssp"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView9"
-                app:layout_constraintStart_toEndOf="@+id/imageView9"
+                app:layout_constraintEnd_toStartOf="@+id/imageView9"
+                app:layout_constraintStart_toStartOf="@+id/divider8"
                 app:layout_constraintTop_toTopOf="@+id/imageView9" />
 
             <View
                 android:id="@+id/divider10"
                 android:layout_width="0dp"
-                android:layout_height="0.8dp"
+                android:layout_height="0.7dp"
                 android:layout_marginTop="20dp"
-                android:background="@color/black"
-                app:layout_constraintEnd_toEndOf="@+id/divider6"
-                app:layout_constraintStart_toStartOf="@+id/divider5"
+                android:background="#BDBCBB"
+                app:layout_constraintEnd_toEndOf="@+id/divider9"
+                app:layout_constraintStart_toStartOf="@+id/divider9"
                 app:layout_constraintTop_toBottomOf="@+id/imageView10" />
 
             <ImageView
                 android:id="@+id/imageView10"
-                android:layout_width="@dimen/_40sdp"
-                android:layout_height="@dimen/_40sdp"
+                android:layout_width="@dimen/_29sdp"
+                android:layout_height="@dimen/_29sdp"
                 android:layout_marginTop="20dp"
-                app:layout_constraintStart_toStartOf="@+id/divider7"
+                app:layout_constraintEnd_toEndOf="@+id/divider9"
                 app:layout_constraintTop_toBottomOf="@+id/divider9"
                 app:srcCompat="@drawable/petrol" />
 
@@ -252,40 +280,30 @@
                 android:id="@+id/tvPetrol"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="80dp"
                 android:hint="Diesel"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_17ssp"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView10"
-                app:layout_constraintStart_toEndOf="@+id/imageView10"
+                app:layout_constraintEnd_toStartOf="@+id/imageView10"
+                app:layout_constraintStart_toStartOf="@+id/divider9"
                 app:layout_constraintTop_toTopOf="@+id/imageView10" />
 
             <View
                 android:id="@+id/divider11"
                 android:layout_width="0dp"
-                android:layout_height="0.8dp"
+                android:layout_height="0.7dp"
                 android:layout_marginTop="20dp"
-                android:background="@color/black"
-                app:layout_constraintEnd_toEndOf="@+id/divider6"
-                app:layout_constraintStart_toStartOf="@+id/divider5"
+                android:background="#BDBCBB"
+                app:layout_constraintEnd_toEndOf="@+id/divider10"
+                app:layout_constraintStart_toStartOf="@+id/divider10"
                 app:layout_constraintTop_toBottomOf="@+id/imageView11" />
-
-            <View
-                android:id="@+id/divider14"
-                android:layout_width="0dp"
-                android:layout_height="0.8dp"
-                android:layout_marginTop="50dp"
-                android:background="#00000000"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/divider6"
-                app:layout_constraintStart_toStartOf="@+id/divider5"/>
 
             <ImageView
                 android:id="@+id/imageView11"
-                android:layout_width="@dimen/_40sdp"
-                android:layout_height="@dimen/_40sdp"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
                 android:layout_marginTop="20dp"
-                app:layout_constraintStart_toStartOf="@+id/divider7"
+                app:layout_constraintEnd_toEndOf="@+id/divider10"
                 app:layout_constraintTop_toBottomOf="@+id/divider10"
                 app:srcCompat="@drawable/pistons" />
 
@@ -293,20 +311,20 @@
                 android:id="@+id/tvPiston"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="80dp"
                 android:hint="4"
-                android:textColor="@color/black"
+                android:textColor="#E44411"
                 android:textSize="@dimen/_17ssp"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView11"
-                app:layout_constraintStart_toEndOf="@+id/imageView11"
+                app:layout_constraintEnd_toStartOf="@+id/imageView11"
+                app:layout_constraintStart_toStartOf="@+id/divider10"
                 app:layout_constraintTop_toTopOf="@+id/imageView11" />
 
             <ImageView
                 android:id="@+id/imageView14"
-                android:layout_width="@dimen/_40sdp"
-                android:layout_height="@dimen/_40sdp"
+                android:layout_width="@dimen/_29sdp"
+                android:layout_height="@dimen/_29sdp"
                 android:layout_marginTop="20dp"
-                app:layout_constraintStart_toStartOf="@+id/divider7"
+                app:layout_constraintEnd_toEndOf="@+id/divider11"
                 app:layout_constraintTop_toBottomOf="@+id/divider11"
                 app:srcCompat="@drawable/location" />
 
@@ -314,12 +332,23 @@
                 android:id="@+id/tvLocation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="80dp"
-                android:hint="Palestine,Gaza"
-                android:textColor="@color/black"
-                android:textSize="@dimen/_17ssp"
+                android:hint="قطاع غزة"
+                android:textColor="#3F51B5"
+                android:textSize="@dimen/_15ssp"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView14"
-                app:layout_constraintStart_toEndOf="@+id/imageView14"
+                app:layout_constraintEnd_toStartOf="@+id/imageView14"
+                app:layout_constraintStart_toStartOf="@+id/divider11"
+                app:layout_constraintTop_toTopOf="@+id/imageView14" />
+
+            <TextView
+                android:id="@+id/tvLocation2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="120dp"
+                android:text=""
+                android:textColor="#00000000"
+                android:textSize="@dimen/_15ssp"
+                app:layout_constraintStart_toStartOf="@+id/divider11"
                 app:layout_constraintTop_toTopOf="@+id/imageView14" />
 
 

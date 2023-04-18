@@ -81,11 +81,9 @@ public class MoreFragment extends Fragment {
         });
         binding.clickMyCars.setOnClickListener(v -> {
             startActivity(new Intent(getActivity(), MyCarsActivity.class));
-            getActivity().overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
         });
         binding.clickSettings.setOnClickListener(v -> {
             startActivity(new Intent(getActivity(), SettingsActivity.class));
-            getActivity().overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
         });
         binding.clickPrivacy.setOnClickListener(v -> {
 //            startActivity(new Intent(getActivity(),));
@@ -102,7 +100,6 @@ public class MoreFragment extends Fragment {
 
             out.setOnClickListener(view -> {
                 startActivity(new Intent(getActivity(), LoginActivity.class));
-                getActivity().overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                 getActivity().finishAffinity();
             });
             close.setOnClickListener(new View.OnClickListener() {

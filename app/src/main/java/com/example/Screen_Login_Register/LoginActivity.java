@@ -29,7 +29,7 @@ public class LoginActivity extends AppCompatActivity {
         binding.btnSignIn.setOnClickListener(view -> {
             if (binding.dividerM.getVisibility() == View.VISIBLE) {
                 startActivity(new Intent(getBaseContext(), HomeActivity.class));
-                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+                overridePendingTransition(R.anim.lefttoright_plus, R.anim.fadeout);
                 finishAffinity();
                 Toast.makeText(this, "Merchant", Toast.LENGTH_SHORT).show();
             }
