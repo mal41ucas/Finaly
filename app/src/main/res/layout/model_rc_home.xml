@@ -3,19 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="@dimen/_270sdp">
 
     <androidx.cardview.widget.CardView
         android:layout_width="0dp"
-        android:layout_height="@dimen/_250sdp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_15sdp"
+        android:layout_marginEnd="@dimen/_15sdp"
         app:cardCornerRadius="@dimen/_12sdp"
         app:cardElevation="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_5sdp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" >
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -36,9 +37,9 @@
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="10dp"
                 android:text="اسم السيارة كامل"
+                android:textColor="@color/black"
                 android:textSize="@dimen/_16ssp"
                 android:textStyle="bold"
-                android:textColor="@color/black"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
 
@@ -64,16 +65,17 @@
                 app:layout_constraintStart_toStartOf="@+id/tvMileagePost"
                 app:layout_constraintTop_toBottomOf="@+id/tvMileagePost" />
 
-            <ImageView
+            <CheckBox
                 android:id="@+id/imgBuyPost"
-                android:layout_width="@dimen/_35sdp"
-                android:layout_height="@dimen/_35sdp"
-                android:layout_marginEnd="@dimen/_20sdp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_20sdp"
+                android:checked="false"
+                android:foreground="@drawable/favorite_un_checked_24"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/recyclerView"
-                app:srcCompat="@drawable/favorite_un_checked_24" />
+                app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
