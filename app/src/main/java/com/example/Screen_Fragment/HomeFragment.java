@@ -1,18 +1,32 @@
 package com.example.Screen_Fragment;
 
+import static com.android.volley.Request.Method.GET;
+
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
+import android.util.LogPrinter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
 import android.widget.ArrayAdapter;
+import android.widget.Toast;
 
 
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.example.projectcar.R;
 import com.example.projectcar.databinding.FragmentHomeBinding;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -24,7 +38,9 @@ import java.util.Calendar;
  */
 public class HomeFragment extends Fragment {
 
+    RequestQueue requestQueue;
     FragmentHomeBinding binding;
+    String message;
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
@@ -70,6 +86,7 @@ public class HomeFragment extends Fragment {
         ArrayList<String> yearsList = new ArrayList<>();
         int current_year = Calendar.getInstance().get(Calendar.YEAR);
         int count = 60;
+        showAllCars();
         for (int i = 0; i < count; i++) {
             yearsList.add(Integer.toString(current_year - i));
         }
@@ -79,6 +96,33 @@ public class HomeFragment extends Fragment {
         ShowAndHideFilter();
         return binding.getRoot();
     }
+
+    void showAllCars(){
+        requestQueue = Volley.newRequestQueue(getActivity());
+        StringRequest stringRequest = new StringRequest(GET, "http://127.0.0.1:8000/api/car", new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try {
+                    JSONObject jsonObject = new JSONObject(response);
+                    JSONArray jsonArray = jsonObject.getJSONArray("data");
+                    JSONObject jsonObject1;
+                    jsonObject1 = jsonArray.getJSONObject(1);
+                    message = jsonObject1.getString("carModel");
+                    Toast.makeText(getActivity(), "any "+message, Toast.LENGTH_SHORT).show();
+                }catch (JSONException e){
+                    e.printStackTrace();
+                }
+
+            }
+        },new Response.ErrorListener(){
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        });
+        requestQueue.add(stringRequest);
+    }
+
     void ShowAndHideFilter(){
         if (binding.carViewFilter.getVisibility() == View.GONE){
             binding.btnShowFilter.setText("عرض");
