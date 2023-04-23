@@ -28,6 +28,10 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Calendar;
 
@@ -99,28 +103,56 @@ public class HomeFragment extends Fragment {
 
     void showAllCars(){
         requestQueue = Volley.newRequestQueue(getActivity());
-        StringRequest stringRequest = new StringRequest(GET, "http://127.0.0.1:8000/api/car", new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                try {
-                    JSONObject jsonObject = new JSONObject(response);
-                    JSONArray jsonArray = jsonObject.getJSONArray("data");
-                    JSONObject jsonObject1;
-                    jsonObject1 = jsonArray.getJSONObject(1);
-                    message = jsonObject1.getString("carModel");
-                    Toast.makeText(getActivity(), "any "+message, Toast.LENGTH_SHORT).show();
-                }catch (JSONException e){
-                    e.printStackTrace();
-                }
+//        StringRequest stringRequest = new StringRequest(GET, "http://localhost:8000/api/car", new Response.Listener<String>() {
+//            @Override
+//            public void onResponse(String response) {
+//                try {
+//                    JSONObject jsonObject = new JSONObject(response);
+//                    JSONArray jsonArray = jsonObject.getJSONArray("data");
+//                    message = jsonObject.getString("message");
+////                    for (int i = 0 ; i < jsonArray.length(); i++){
+////                        JSONObject jsonObject1;
+////                        jsonObject1 = jsonArray.getJSONObject(1);
+////                        message = jsonObject1.getString("carModel");
+//                        Toast.makeText(getActivity(), "any "+message, Toast.LENGTH_SHORT).show();
+////                    }
+//                }catch (JSONException e){
+//                    e.printStackTrace();
+//                }
+//
+//            }
+//        },new Response.ErrorListener(){
+//            @Override
+//            public void onErrorResponse(VolleyError error) {
+//                error.printStackTrace();
+//            }
+//        });
+//        requestQueue.add(stringRequest);
 
-            }
-        },new Response.ErrorListener(){
-            @Override
-            public void onErrorResponse(VolleyError error) {
 
-            }
-        });
-        requestQueue.add(stringRequest);
+
+
+        // second try
+//        try {
+//            URL url = new URL("http://localhost:3306/api/car");
+//            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+//            conn.setRequestMethod("GET");
+//
+//            BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+//            String inputLine;
+//            StringBuffer response = new StringBuffer();
+//
+//            while ((inputLine = in.readLine()) != null) {
+//                response.append(inputLine);
+//            }
+//
+//            in.close();
+//            Toast.makeText(getActivity(), ""+response.toString(), Toast.LENGTH_LONG).show();
+//            System.out.println(response.toString());
+//        } catch (Exception e) {
+//            System.err.println("Error: " + e.getMessage());
+//            Toast.makeText(getActivity(), ""+e.getMessage(), Toast.LENGTH_SHORT).show();
+//        }
     }
 
     void ShowAndHideFilter(){
