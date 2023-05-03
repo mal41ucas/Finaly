@@ -21,6 +21,10 @@ public class ViewCarsActivity extends AppCompatActivity {
         binding = ActivityViewCarsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        binding.back.setOnClickListener(view ->{
+            finish();
+        });
+
         binding.checkboxFavoriteCar.setOnClickListener(v -> {
             if (binding.checkboxFavoriteCar.isChecked()) {
                 binding.checkboxFavoriteCar.setForeground(getDrawable(R.drawable.favorite_checked_24));
