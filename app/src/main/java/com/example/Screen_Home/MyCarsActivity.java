@@ -15,5 +15,8 @@ public class MyCarsActivity extends AppCompatActivity {
         binding = ActivityMyCarsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        binding.back.setOnClickListener(view ->{
+            finish();
+        });
     }
 }

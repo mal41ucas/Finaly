@@ -6,6 +6,41 @@
     android:layout_height="match_parent"
     tools:context="com.example.Screen_Home.AddPostActivity">
 
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_50sdp"
+        android:orientation="horizontal"
+        android:background="#058F82"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/back"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:backgroundTint="@color/white"
+            android:background="@drawable/back"
+            android:layout_gravity="center_vertical"
+            android:contentDescription="TODO" />
+
+        <TextView
+            android:id="@+id/textView19"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="إضافة سيارة"
+            android:paddingRight="@dimen/_50sdp"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_20ssp"
+            android:gravity="center"
+            android:layout_gravity="center_vertical"/>
+
+    </LinearLayout>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -309,6 +344,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/radioGroup5" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 

@@ -42,8 +42,8 @@ public class SettingsActivity extends AppCompatActivity {
             }
         });
 
-        binding.tvBack.setOnClickListener(v -> {
-
+        binding.back.setOnClickListener(v -> {
+            finish();
         });
     }
 

@@ -147,7 +147,7 @@
             android:drawablePadding="20dp"
             android:ems="10"
             android:gravity="right|center"
-            android:hint="إسم المستخدم"
+            android:hint="البريد الإلكتروني"
             android:inputType="textEmailAddress"
             android:minHeight="48dp"
             android:paddingRight="@dimen/_15sdp"

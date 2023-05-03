@@ -38,6 +38,10 @@ public class ProfileActivity extends AppCompatActivity {
         binding = ActivityProfileBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        binding.back.setOnClickListener(view -> {
+            finish();
+        });
+
         binding.imgEditProfile.setOnClickListener(v -> {
             AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(ProfileActivity.this);
             View layoutView = getLayoutInflater().inflate(R.layout.model_data_profile, null);
