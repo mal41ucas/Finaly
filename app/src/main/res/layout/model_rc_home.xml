@@ -11,8 +11,6 @@
         android:layout_marginStart="@dimen/_15sdp"
         android:layout_marginEnd="@dimen/_15sdp"
         app:cardCornerRadius="@dimen/_12sdp"
-        app:cardElevation="@dimen/_10sdp"
-        android:layout_marginBottom="@dimen/_5sdp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -34,24 +32,24 @@
                 android:id="@+id/tvFullNamePost"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="10dp"
                 android:text="اسم السيارة كامل"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_16ssp"
+                android:textSize="@dimen/_14ssp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
 
             <TextView
                 android:id="@+id/tvMileagePost"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
+                android:layout_marginTop="5dp"
                 android:text="المسافة المقطوعة"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_13ssp"
-                app:layout_constraintStart_toStartOf="@+id/tvFullNamePost"
+                android:textSize="@dimen/_12ssp"
+                app:layout_constraintEnd_toEndOf="@+id/tvFullNamePost"
                 app:layout_constraintTop_toBottomOf="@+id/tvFullNamePost" />
 
             <TextView
@@ -60,9 +58,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:text="سعر السيارة"
+                android:paddingBottom="10dp"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_13ssp"
-                app:layout_constraintStart_toStartOf="@+id/tvMileagePost"
+                app:layout_constraintEnd_toEndOf="@+id/tvMileagePost"
                 app:layout_constraintTop_toBottomOf="@+id/tvMileagePost" />
 
             <CheckBox
@@ -70,11 +69,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_10sdp"
-                android:layout_marginEnd="@dimen/_20sdp"
+                android:layout_marginStart="@dimen/_20sdp"
                 android:checked="false"
                 android:foreground="@drawable/favorite_un_checked_24"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

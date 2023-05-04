@@ -34,6 +34,11 @@ public class AddPostActivity extends AppCompatActivity implements View.OnClickLi
         binding = ActivityAddPostBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+
+        binding.back.setOnClickListener(v -> {
+            finish();
+        });
+
         list = new ArrayList<>();
         adaptor = new SelectImageAdapter(list);
         binding.rcHomeFragment.setAdapter(adaptor);

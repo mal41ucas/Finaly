@@ -24,6 +24,7 @@
         android:layout_marginBottom="@dimen/_20sdp"
         android:background="@drawable/shape_bottom_nav"
         app:itemIconSize="@dimen/_25sdp"
+        app:elevation="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -32,8 +33,8 @@
     <androidx.cardview.widget.CardView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/_20sdp"
-        app:cardElevation="20dp"
+        android:layout_marginBottom="@dimen/_23sdp"
+        app:cardElevation="5dp"
         app:cardCornerRadius="60dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -41,8 +42,8 @@
 
         <ImageView
             android:id="@+id/imageAddPost"
-            android:layout_width="@dimen/_50sdp"
-            android:layout_height="@dimen/_50sdp"
+            android:layout_width="@dimen/_52sdp"
+            android:layout_height="@dimen/_52sdp"
             app:srcCompat="@drawable/button" />
     </androidx.cardview.widget.CardView>
 

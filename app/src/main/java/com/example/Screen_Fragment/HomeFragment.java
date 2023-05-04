@@ -97,6 +97,7 @@ public class HomeFragment extends Fragment {
         ArrayAdapter<String> yearsAdapter = new ArrayAdapter<>
                 (getActivity(), android.R.layout.simple_spinner_item, yearsList);
         binding.spinnerYear.setAdapter(yearsAdapter);
+
         ShowAndHideFilter();
         return binding.getRoot();
     }
