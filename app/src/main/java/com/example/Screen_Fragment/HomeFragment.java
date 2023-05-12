@@ -132,8 +132,7 @@ public class HomeFragment extends Fragment {
     }
 
 
-
-    void showAllCars(){
+    void showAllCars() {
         requestQueue = Volley.newRequestQueue(getActivity());
 //        StringRequest stringRequest = new StringRequest(GET, "http://localhost:8000/api/car", new Response.Listener<String>() {
 //            @Override
@@ -162,8 +161,6 @@ public class HomeFragment extends Fragment {
 //        requestQueue.add(stringRequest);
 
 
-
-
         // second try
 //        try {
 //            URL url = new URL("http://localhost:3306/api/car");
@@ -187,19 +184,19 @@ public class HomeFragment extends Fragment {
 //        }
     }
 
-    void ShowAndHideFilter(){
-        if (binding.carViewFilter.getVisibility() == View.GONE){
+    void ShowAndHideFilter() {
+        if (binding.carViewFilter.getVisibility() == View.GONE) {
             binding.btnShowFilter.setText("عرض");
-        } else if (binding.carViewFilter.getVisibility() == View.VISIBLE){
+        } else if (binding.carViewFilter.getVisibility() == View.VISIBLE) {
             binding.btnShowFilter.setText("إخفاء");
         }
         binding.btnShowFilter.setOnClickListener(v -> {
-            if (binding.carViewFilter.getVisibility() == View.GONE){
+            if (binding.carViewFilter.getVisibility() == View.GONE) {
                 binding.carViewFilter.setVisibility(View.VISIBLE);
                 binding.btnShowFilter.setText("إخفاء");
                 binding.carViewFilter.startAnimation(AnimationUtils.loadAnimation(getActivity(),
                         R.anim.fadein_faster));
-            } else if (binding.carViewFilter.getVisibility() == View.VISIBLE){
+            } else if (binding.carViewFilter.getVisibility() == View.VISIBLE) {
                 binding.carViewFilter.setVisibility(View.GONE);
                 binding.btnShowFilter.setText("عرض");
                 binding.carViewFilter.startAnimation(AnimationUtils.loadAnimation(getActivity(),
