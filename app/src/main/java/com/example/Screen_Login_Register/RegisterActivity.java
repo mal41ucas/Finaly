@@ -23,12 +23,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         binding.btnRegister.setOnClickListener(view -> {
             if (binding.dividerMRegister.getVisibility() == View.VISIBLE) {
-                if (binding.dividerAgent.getVisibility() == View.VISIBLE) {
-                    Toast.makeText(this, "وكيل", Toast.LENGTH_SHORT).show();
-                }
-                if (binding.dividerFair.getVisibility() == View.VISIBLE) {
-                    Toast.makeText(this, "معرض", Toast.LENGTH_SHORT).show();
-                }
+                Toast.makeText(this, "تاجر", Toast.LENGTH_SHORT).show();
             }
             if (binding.dividerCRegister.getVisibility() == View.VISIBLE) {
                 Toast.makeText(this, "مستخدم", Toast.LENGTH_SHORT).show();
@@ -36,12 +31,11 @@ public class RegisterActivity extends AppCompatActivity {
         });
 
         binding.tvSginInRegister.setOnClickListener(view -> {
-            startActivity(new Intent(getBaseContext(),LoginActivity.class));
+            startActivity(new Intent(getBaseContext(), LoginActivity.class));
             finishAffinity();
         });
 
         SelectAccount();
-        SelectJob();
         Anim();
     }
 
@@ -53,9 +47,6 @@ public class RegisterActivity extends AppCompatActivity {
             binding.tvCustomerRegister.setTextColor(getColor(R.color.teal_700));
             binding.dividerMRegister.setVisibility(View.VISIBLE);
             binding.dividerCRegister.setVisibility(View.INVISIBLE);
-            binding.linearLayoutSelectAccount.setVisibility(View.VISIBLE);
-            binding.linearLayoutSelectAccount.startAnimation(AnimationUtils.loadAnimation
-                    (getBaseContext(), R.anim.fadein_faster));
         });
         binding.tvCustomerRegister.setOnClickListener(view -> {
             binding.tvCustomerRegister.setBackground(getDrawable(R.drawable.shape_btn_next));
@@ -64,27 +55,6 @@ public class RegisterActivity extends AppCompatActivity {
             binding.tvMerchantRegister.setTextColor(getColor(R.color.teal_700));
             binding.dividerCRegister.setVisibility(View.VISIBLE);
             binding.dividerMRegister.setVisibility(View.INVISIBLE);
-            binding.linearLayoutSelectAccount.startAnimation(AnimationUtils.loadAnimation
-                    (getBaseContext(), R.anim.fadeout));
-        });
-    }
-
-    void SelectJob() {
-        binding.tvAgent.setOnClickListener(view -> {
-            binding.tvAgent.setBackground(getDrawable(R.drawable.shape_btn_next));
-            binding.tvAgent.setTextColor(getColor(R.color.white));
-            binding.tvFair.setBackground(getDrawable(R.drawable.shape_edit_login));
-            binding.tvFair.setTextColor(getColor(R.color.teal_700));
-            binding.dividerAgent.setVisibility(View.VISIBLE);
-            binding.dividerFair.setVisibility(View.INVISIBLE);
-        });
-        binding.tvFair.setOnClickListener(view -> {
-            binding.tvFair.setBackground(getDrawable(R.drawable.shape_btn_next));
-            binding.tvFair.setTextColor(getColor(R.color.white));
-            binding.tvAgent.setBackground(getDrawable(R.drawable.shape_edit_login));
-            binding.tvAgent.setTextColor(getColor(R.color.teal_700));
-            binding.dividerAgent.setVisibility(View.INVISIBLE);
-            binding.dividerFair.setVisibility(View.VISIBLE);
         });
     }
 

@@ -55,12 +55,12 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/cardViewProfile"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_90sdp"
-        android:layout_marginStart="40dp"
+        android:layout_height="@dimen/_100sdp"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="50dp"
-        android:layout_marginEnd="40dp"
-        app:cardCornerRadius="@dimen/_10sdp"
-        app:cardElevation="@dimen/_10sdp"
+        android:layout_marginEnd="30dp"
+        app:cardCornerRadius="@dimen/_5sdp"
+        app:cardElevation="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -215,16 +215,17 @@
         app:layout_constraintStart_toStartOf="@+id/clickSettings"
         app:layout_constraintTop_toTopOf="@+id/textView7" />
 
-    <androidx.appcompat.widget.AppCompatButton
+    <TextView
         android:id="@+id/btnSignOut"
         android:layout_width="0dp"
         android:layout_height="@dimen/_50sdp"
         android:layout_marginStart="@dimen/_40sdp"
-        android:layout_marginTop="65dp"
+        android:layout_marginTop="30dp"
         android:layout_marginEnd="@dimen/_40sdp"
-        android:backgroundTint="#FBFAFA"
+        android:backgroundTint="#FFFFFFFF"
         android:drawableRight="@drawable/baseline_logout_24"
         android:text="تسجيل الخروج"
+        android:gravity="center"
         android:paddingLeft="30dp"
         android:textColor="#ED0909"
         android:textSize="@dimen/_15ssp"

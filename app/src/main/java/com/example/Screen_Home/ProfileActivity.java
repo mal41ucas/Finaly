@@ -42,66 +42,69 @@ public class ProfileActivity extends AppCompatActivity {
             finish();
         });
 
-        binding.imgEditProfile.setOnClickListener(v -> {
-            AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(ProfileActivity.this);
-            View layoutView = getLayoutInflater().inflate(R.layout.model_data_profile, null);
-            Button btnDone = layoutView.findViewById(R.id.btnSave);
-            Button btnCancel = layoutView.findViewById(R.id.btnCancel);
-            TextView edFirstName = layoutView.findViewById(R.id.edFirstName);
-            TextView edLastName = layoutView.findViewById(R.id.edLastName);
-            TextView edEmail = layoutView.findViewById(R.id.edEmail);
-            TextView edPhoneNumber = layoutView.findViewById(R.id.edPhoneNumber);
-            TextView edPasswordEdit = layoutView.findViewById(R.id.edPasswordEdit);
-            TextView edPasswordConfirmEdit = layoutView.findViewById(R.id.edPasswordConfirmEdit);
-            dialogBuilder.setView(layoutView);
-            AlertDialog alertDialog = dialogBuilder.create();
-            alertDialog.setCancelable(false);
-
-            btnDone.setOnClickListener(view -> {
-                if (!TextUtils.isEmpty(edFirstName.getText().toString())) {
-                    if (!TextUtils.isEmpty(edLastName.getText().toString())) {
-                        if (!TextUtils.isEmpty(edPhoneNumber.getText().toString())) {
-                            if (!TextUtils.isEmpty(edEmail.getText().toString())) {
-                                if (edPhoneNumber.getText().toString().length() == 10) {
-                                    if (!TextUtils.isEmpty(edPasswordEdit.getText().toString()) && edPasswordEdit.getText().toString().length() >= 6) {
-                                        if (edPasswordEdit.getText().toString().equals(edPasswordConfirmEdit.getText().toString())) {
-                                            binding.tvNameUserProfile.setText(edFirstName.getText().toString()
-                                                    + " " + edLastName.getText().toString());
-                                            binding.tvEmailProfile.setText(edEmail.getText().toString());
-                                            binding.tvPhoneProfile.setText(edPhoneNumber.getText().toString());
-                                            binding.tvPasswordProfile.setText(edPasswordEdit.getText().toString());
-                                            alertDialog.dismiss();
-                                        } else {
-                                            Toast.makeText(this, "كلمة المرور ليست متطابقة", Toast.LENGTH_SHORT).show();
-                                        }
-                                    } else {
-                                        Toast.makeText(this, "أدخل كلمة المرور 6 حروف على الأقل", Toast.LENGTH_SHORT).show();
-                                    }
-                                } else {
-                                    Toast.makeText(this, "يجب ان يكون رقم الهاتف 10 أرقام", Toast.LENGTH_SHORT).show();
-                                }
-                            } else {
-                                Toast.makeText(this, "أدخل رقم الهاتف", Toast.LENGTH_SHORT).show();
-                            }
-                        } else {
-                            Toast.makeText(this, "ادخل البريد", Toast.LENGTH_SHORT).show();
-                        }
-                    } else {
-                        Toast.makeText(this, "أدخل الإسم الأخير", Toast.LENGTH_SHORT).show();
-                    }
-                } else {
-                    Toast.makeText(this, "أدخل الإسم الأول", Toast.LENGTH_SHORT).show();
-                }
-            });
-            btnCancel.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    alertDialog.dismiss();
-                }
-            });
-            alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-            alertDialog.show();
+        binding.btnEditProfile.setOnClickListener(v -> {
+            startActivity(new Intent(getBaseContext(),EditProfileActivity.class));
         });
+//        binding.imgEditProfile.setOnClickListener(v -> {
+//            AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(ProfileActivity.this);
+//            View layoutView = getLayoutInflater().inflate(R.layout.model_data_profile, null);
+//            Button btnDone = layoutView.findViewById(R.id.btnSave);
+//            Button btnCancel = layoutView.findViewById(R.id.btnCancel);
+//            TextView edFirstName = layoutView.findViewById(R.id.edFirstName);
+//            TextView edLastName = layoutView.findViewById(R.id.edLastName);
+//            TextView edEmail = layoutView.findViewById(R.id.edEmail);
+//            TextView edPhoneNumber = layoutView.findViewById(R.id.edPhoneNumber);
+//            TextView edPasswordEdit = layoutView.findViewById(R.id.edPasswordEdit);
+//            TextView edPasswordConfirmEdit = layoutView.findViewById(R.id.edPasswordConfirmEdit);
+//            dialogBuilder.setView(layoutView);
+//            AlertDialog alertDialog = dialogBuilder.create();
+//            alertDialog.setCancelable(false);
+//
+//            btnDone.setOnClickListener(view -> {
+//                if (!TextUtils.isEmpty(edFirstName.getText().toString())) {
+//                    if (!TextUtils.isEmpty(edLastName.getText().toString())) {
+//                        if (!TextUtils.isEmpty(edPhoneNumber.getText().toString())) {
+//                            if (!TextUtils.isEmpty(edEmail.getText().toString())) {
+//                                if (edPhoneNumber.getText().toString().length() == 10) {
+//                                    if (!TextUtils.isEmpty(edPasswordEdit.getText().toString()) && edPasswordEdit.getText().toString().length() >= 6) {
+//                                        if (edPasswordEdit.getText().toString().equals(edPasswordConfirmEdit.getText().toString())) {
+//                                            binding.tvNameUserProfile.setText(edFirstName.getText().toString()
+//                                                    + " " + edLastName.getText().toString());
+//                                            binding.tvEmailProfile.setText(edEmail.getText().toString());
+//                                            binding.tvPhoneProfile.setText(edPhoneNumber.getText().toString());
+//                                            binding.tvPasswordProfile.setText(edPasswordEdit.getText().toString());
+//                                            alertDialog.dismiss();
+//                                        } else {
+//                                            Toast.makeText(this, "كلمة المرور ليست متطابقة", Toast.LENGTH_SHORT).show();
+//                                        }
+//                                    } else {
+//                                        Toast.makeText(this, "أدخل كلمة المرور 6 حروف على الأقل", Toast.LENGTH_SHORT).show();
+//                                    }
+//                                } else {
+//                                    Toast.makeText(this, "يجب ان يكون رقم الهاتف 10 أرقام", Toast.LENGTH_SHORT).show();
+//                                }
+//                            } else {
+//                                Toast.makeText(this, "أدخل رقم الهاتف", Toast.LENGTH_SHORT).show();
+//                            }
+//                        } else {
+//                            Toast.makeText(this, "ادخل البريد", Toast.LENGTH_SHORT).show();
+//                        }
+//                    } else {
+//                        Toast.makeText(this, "أدخل الإسم الأخير", Toast.LENGTH_SHORT).show();
+//                    }
+//                } else {
+//                    Toast.makeText(this, "أدخل الإسم الأول", Toast.LENGTH_SHORT).show();
+//                }
+//            });
+//            btnCancel.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View view) {
+//                    alertDialog.dismiss();
+//                }
+//            });
+//            alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+//            alertDialog.show();
+//        });
         binding.imgEditPhotoUser.setOnClickListener(v -> {
             Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
             photoPickerIntent.setType("image/*");
