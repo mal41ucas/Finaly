@@ -5,6 +5,7 @@ import static com.android.volley.Request.Method.GET;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.util.Log;
 import android.util.LogPrinter;
@@ -90,7 +91,8 @@ public class HomeFragment extends Fragment {
         ArrayList<String> yearsList = new ArrayList<>();
         int current_year = Calendar.getInstance().get(Calendar.YEAR);
         int count = 60;
-        showAllCars();
+//        showAllCars();
+        getAllCars2();
         for (int i = 0; i < count; i++) {
             yearsList.add(Integer.toString(current_year - i));
         }
@@ -102,7 +104,35 @@ public class HomeFragment extends Fragment {
         return binding.getRoot();
     }
 
-    void showAllCars(){
+    void getAllCars2() {
+        requestQueue = Volley.newRequestQueue(getActivity());
+//        StringRequest stringRequest = new StringRequest(GET, "http://127.0.0.1/api/car", new Response.Listener<String>() {
+//            @Override
+//            public void onResponse(String response) {
+//                try {
+//                    JSONObject jsonObject = new JSONObject(response);
+//                    JSONArray jsonArray = jsonObject.getJSONArray("data");
+//                    JSONObject jsonObject1;
+//                    for (int i = 0; i < jsonArray.length(); i++) {
+//                        jsonObject1 = jsonArray.getJSONObject(i);
+//                        message = jsonObject1.getString("fullName");
+//                        Toast.makeText(getActivity(), "/"+message, Toast.LENGTH_LONG).show();
+//                    }
+//                } catch (JSONException e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//        }, new Response.ErrorListener() {
+//            @Override
+//            public void onErrorResponse(VolleyError error) {
+//
+//            }
+//        });
+//        requestQueue.add(stringRequest);
+    }
+
+
+    void showAllCars() {
         requestQueue = Volley.newRequestQueue(getActivity());
 //        StringRequest stringRequest = new StringRequest(GET, "http://localhost:8000/api/car", new Response.Listener<String>() {
 //            @Override
@@ -131,8 +161,6 @@ public class HomeFragment extends Fragment {
 //        requestQueue.add(stringRequest);
 
 
-
-
         // second try
 //        try {
 //            URL url = new URL("http://localhost:3306/api/car");
@@ -156,19 +184,19 @@ public class HomeFragment extends Fragment {
 //        }
     }
 
-    void ShowAndHideFilter(){
-        if (binding.carViewFilter.getVisibility() == View.GONE){
+    void ShowAndHideFilter() {
+        if (binding.carViewFilter.getVisibility() == View.GONE) {
             binding.btnShowFilter.setText("عرض");
-        } else if (binding.carViewFilter.getVisibility() == View.VISIBLE){
+        } else if (binding.carViewFilter.getVisibility() == View.VISIBLE) {
             binding.btnShowFilter.setText("إخفاء");
         }
         binding.btnShowFilter.setOnClickListener(v -> {
-            if (binding.carViewFilter.getVisibility() == View.GONE){
+            if (binding.carViewFilter.getVisibility() == View.GONE) {
                 binding.carViewFilter.setVisibility(View.VISIBLE);
                 binding.btnShowFilter.setText("إخفاء");
                 binding.carViewFilter.startAnimation(AnimationUtils.loadAnimation(getActivity(),
                         R.anim.fadein_faster));
-            } else if (binding.carViewFilter.getVisibility() == View.VISIBLE){
+            } else if (binding.carViewFilter.getVisibility() == View.VISIBLE) {
                 binding.carViewFilter.setVisibility(View.GONE);
                 binding.btnShowFilter.setText("عرض");
                 binding.carViewFilter.startAnimation(AnimationUtils.loadAnimation(getActivity(),
