@@ -163,11 +163,10 @@
         app:layout_constraintTop_toBottomOf="@+id/cardView4" />
 
     <TextView
-        android:id="@+id/tvPasswordProfile"
+        android:id="@+id/tvAddressProfile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:hint="*************"
+        android:hint="فلسطين - غزة"
         android:textColor="#2196F3"
         android:textSize="@dimen/_17ssp"
         app:layout_constraintBottom_toBottomOf="@+id/textView14"
@@ -227,7 +226,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:text="كلمة المرور  : "
+        android:text="العنوان  : "
         android:textColor="@color/black"
         android:textSize="@dimen/_15ssp"
         app:layout_constraintEnd_toEndOf="@+id/textView10"
