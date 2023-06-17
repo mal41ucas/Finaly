@@ -3,15 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/_270sdp">
+    android:layout_height="405dp"
+    android:background="#098176">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cardView2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_15sdp"
-        android:layout_marginEnd="@dimen/_15sdp"
-        app:cardCornerRadius="@dimen/_12sdp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:cardElevation="0dp"
+        app:cardBackgroundColor="#098176"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -20,35 +20,71 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerView"
+            <ImageView
+                android:id="@+id/imgViewCar"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_170sdp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/car2"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvFullNamePost2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="20dp"
+                android:text="اسم السيارة : "
+                android:textColor="@color/white"
+                android:textSize="@dimen/_18ssp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imgViewCar" />
+
+            <TextView
+                android:id="@+id/tvTraveledDistance2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="موديل السيارة : "
+                android:textColor="@color/white"
+                android:textSize="@dimen/_16ssp"
+                app:layout_constraintEnd_toEndOf="@+id/tvFullNamePost2"
+                app:layout_constraintStart_toStartOf="@+id/tvFullNamePost2"
+                app:layout_constraintTop_toBottomOf="@+id/tvFullNamePost2" />
+
+            <TextView
+                android:id="@+id/tvPricePost2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingBottom="5dp"
+                android:text="سعر السيارة   : "
+                android:textColor="@color/white"
+                android:textSize="@dimen/_16ssp"
+                app:layout_constraintEnd_toEndOf="@+id/tvTraveledDistance2"
+                app:layout_constraintStart_toEndOf="@+id/tvTraveledDistance"
+                app:layout_constraintTop_toBottomOf="@+id/tvTraveledDistance2" />
 
             <TextView
                 android:id="@+id/tvFullNamePost"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:layout_marginRight="10dp"
                 android:text="اسم السيارة كامل"
-                android:textColor="@color/black"
-                android:textSize="@dimen/_14ssp"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_18ssp"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
+                app:layout_constraintEnd_toStartOf="@+id/tvFullNamePost2"
+                app:layout_constraintTop_toBottomOf="@+id/imgViewCar" />
 
             <TextView
-                android:id="@+id/tvMileagePost"
+                android:id="@+id/tvTraveledDistance"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
                 android:text="المسافة المقطوعة"
-                android:textColor="@color/black"
-                android:textSize="@dimen/_12ssp"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_16ssp"
                 app:layout_constraintEnd_toEndOf="@+id/tvFullNamePost"
                 app:layout_constraintTop_toBottomOf="@+id/tvFullNamePost" />
 
@@ -56,26 +92,36 @@
                 android:id="@+id/tvPricePost"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
+                android:paddingBottom="5dp"
                 android:text="سعر السيارة"
-                android:paddingBottom="10dp"
-                android:textColor="@color/black"
-                android:textSize="@dimen/_13ssp"
-                app:layout_constraintEnd_toEndOf="@+id/tvMileagePost"
-                app:layout_constraintTop_toBottomOf="@+id/tvMileagePost" />
+                android:textColor="@color/white"
+                android:textSize="@dimen/_16ssp"
+                app:layout_constraintEnd_toEndOf="@+id/tvTraveledDistance"
+                app:layout_constraintTop_toBottomOf="@+id/tvTraveledDistance" />
 
             <CheckBox
-                android:id="@+id/imgBuyPost"
+                android:id="@+id/checkFavorite"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_10sdp"
                 android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_10sdp"
                 android:checked="false"
                 android:foreground="@drawable/favorite_un_checked_24"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
+                app:layout_constraintTop_toBottomOf="@+id/imgViewCar" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
+
+    <View
+        android:id="@+id/divider14"
+        android:layout_width="match_parent"
+        android:layout_height="8dp"
+        android:background="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView2" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

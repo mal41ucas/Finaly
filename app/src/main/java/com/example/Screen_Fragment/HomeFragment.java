@@ -22,6 +22,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.Adapter.ShowCarAdapter;
+import com.example.Model.ShowCar;
 import com.example.projectcar.R;
 import com.example.projectcar.databinding.FragmentHomeBinding;
 
@@ -46,6 +48,9 @@ public class HomeFragment extends Fragment {
     RequestQueue requestQueue;
     FragmentHomeBinding binding;
     String message;
+
+    ShowCarAdapter showCarAdapter;
+    ArrayList<ShowCar> showCarArrayList;
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
@@ -91,7 +96,6 @@ public class HomeFragment extends Fragment {
         ArrayList<String> yearsList = new ArrayList<>();
         int current_year = Calendar.getInstance().get(Calendar.YEAR);
         int count = 60;
-//        showAllCars();
         getAllCars2();
         for (int i = 0; i < count; i++) {
             yearsList.add(Integer.toString(current_year - i));
@@ -100,6 +104,20 @@ public class HomeFragment extends Fragment {
                 (getActivity(), android.R.layout.simple_spinner_item, yearsList);
         binding.spinnerYear.setAdapter(yearsAdapter);
 
+        showCarArrayList = new ArrayList<>();
+        ShowCar showCar1 = new ShowCar(R.drawable.car2, "Audi", "$ 30000", "A3", false);
+        ShowCar showCar2 = new ShowCar(R.drawable.audi, "Audi", "$ 30000", "A5", false);
+        ShowCar showCar3 = new ShowCar(R.drawable.audi2, "Audi", "$ 30000", "S6", false);
+
+        showCarArrayList.add(showCar1);
+        showCarArrayList.add(showCar2);
+        showCarArrayList.add(showCar3);
+        showCarArrayList.add(showCar1);
+        showCarArrayList.add(showCar2);
+        showCarArrayList.add(showCar3);
+
+        showCarAdapter = new ShowCarAdapter(getActivity(),showCarArrayList);
+        binding.rcHomeShowCars.setAdapter(showCarAdapter);
         ShowAndHideFilter();
         return binding.getRoot();
     }

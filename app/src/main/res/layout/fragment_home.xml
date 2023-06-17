@@ -7,24 +7,24 @@
     tools:context="com.example.Screen_Fragment.HomeFragment">
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcHomeShowCars"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewFilter"
         tools:itemCount="10"
         tools:listitem="@layout/model_rc_home" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/textViewFilter"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/_10sdp"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:layout_marginRight="@dimen/_10sdp"
-        android:backgroundTint="#098176"
+        android:background="#098176"
         android:enabled="false"
+        android:padding="@dimen/_10sdp"
         android:textColor="@color/white"
         android:drawableRight="@drawable/baseline_filter_alt_24"
         android:paddingLeft="@dimen/_65ssp"
@@ -34,15 +34,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnShowFilter"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/_10sdp"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:backgroundTint="#810909"
+        android:backgroundTint="#A30B0B"
         android:text="عرض"
+        android:textColor="@color/white"
         android:textSize="@dimen/_12ssp"
+        app:layout_constraintBottom_toTopOf="@+id/rcHomeShowCars"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

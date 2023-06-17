@@ -15,6 +15,7 @@
     <item
         android:id="@+id/add_nav"
         android:title="Add"
+        android:enabled="false"
         android:icon="@drawable/ic_baseline_add_circle_outline_24"
         />
     <item
