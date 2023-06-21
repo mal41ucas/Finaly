@@ -40,7 +40,7 @@
     <LinearLayout
         android:id="@+id/linearLayoutProfile"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_50sdp"
+        android:layout_height="@dimen/_40sdp"
         android:orientation="horizontal"
         android:background="#058F82"
         app:layout_constraintEnd_toEndOf="parent"

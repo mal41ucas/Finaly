@@ -1,56 +1,38 @@
 package com.example.Screen_Fragment;
 
-import static com.android.volley.Request.Method.GET;
-
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.room.Room;
 
-import android.util.Log;
-import android.util.LogPrinter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
 import android.widget.ArrayAdapter;
-import android.widget.Toast;
 
 
 import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.Adapter.ShowCarAdapter;
-import com.example.Model.ShowCar;
+import com.example.Database.CarDao;
+import com.example.Database.getCarDatabase;
+import com.example.Model.Car;
 import com.example.projectcar.R;
 import com.example.projectcar.databinding.FragmentHomeBinding;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link HomeFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class HomeFragment extends Fragment {
 
     RequestQueue requestQueue;
     FragmentHomeBinding binding;
-    String message;
-
+    private static getCarDatabase carDatabase;
+    CarDao carDao;
     ShowCarAdapter showCarAdapter;
-    ArrayList<ShowCar> showCarArrayList;
+    ArrayList<Car> cars;
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
@@ -62,14 +44,7 @@ public class HomeFragment extends Fragment {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment HomeFragment.
-     */
+
     // TODO: Rename and change types and number of parameters
     public static HomeFragment newInstance(String param1, String param2) {
         HomeFragment fragment = new HomeFragment();
@@ -93,10 +68,14 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = FragmentHomeBinding.inflate(inflater);
+
+        carDatabase = Room.databaseBuilder(getContext(), getCarDatabase.class, "car-database").allowMainThreadQueries().build();
+        carDao = HomeFragment.getCarDatabase().carDao();
+
         ArrayList<String> yearsList = new ArrayList<>();
         int current_year = Calendar.getInstance().get(Calendar.YEAR);
         int count = 60;
-        getAllCars2();
+
         for (int i = 0; i < count; i++) {
             yearsList.add(Integer.toString(current_year - i));
         }
@@ -104,23 +83,41 @@ public class HomeFragment extends Fragment {
                 (getActivity(), android.R.layout.simple_spinner_item, yearsList);
         binding.spinnerYear.setAdapter(yearsAdapter);
 
-        showCarArrayList = new ArrayList<>();
-        ShowCar showCar1 = new ShowCar(R.drawable.car2, "Audi", "$ 30000", "A3", false);
-        ShowCar showCar2 = new ShowCar(R.drawable.audi, "Audi", "$ 30000", "A5", false);
-        ShowCar showCar3 = new ShowCar(R.drawable.audi2, "Audi", "$ 30000", "S6", false);
+        cars = new ArrayList<>();
 
-        showCarArrayList.add(showCar1);
-        showCarArrayList.add(showCar2);
-        showCarArrayList.add(showCar3);
-        showCarArrayList.add(showCar1);
-        showCarArrayList.add(showCar2);
-        showCarArrayList.add(showCar3);
+//        carDao.deleteCar(1);
+//        carDao.deleteCar(2);
+//        carDao.deleteCar(3);
+//        carDao.deleteCar(4);
 
-        showCarAdapter = new ShowCarAdapter(getActivity(),showCarArrayList);
+//            Car car1 = new Car(1, "BMW", true, 20000, 15000, "Sedan", 2013, 1500, "High Material Quality", "Gas", "Red", "Automatic", "BMW","Gaza");
+//            Car car2 = new Car(2, "Fiat", true, 10000, 10000, "Combat", 2010, 2000, "High Material Quality", "Gas", "Red", "Automatic", "BMW","Rafah");
+//            Car car3 = new Car(3, "Mazda", true, 150000, 15000, "HatchBack", 2020, 1600, "High Material Quality", "Gas", "Red", "Automatic", "BMW","Remal");
+//            Car car4 = new Car(4, "Mercedes", true, 15000, 15000, "Luxury", 2023, 6500, "High Material Quality", "Gas", "Red", "Automatic", "BMW","Khanyouns");
+//
+//            cars.add(car1);
+//            cars.add(car2);
+//            cars.add(car3);
+//            cars.add(car4);
+//
+//            carDao.insertCar(car1);
+//            carDao.insertCar(car2);
+//            carDao.insertCar(car3);
+//            carDao.insertCar(car4);
+
+        List<Car> carList = carDao.getAllCars();
+
+        showCarAdapter = new ShowCarAdapter(getActivity(), carList);
         binding.rcHomeShowCars.setAdapter(showCarAdapter);
         ShowAndHideFilter();
         return binding.getRoot();
     }
+
+
+    public static getCarDatabase getCarDatabase() {
+        return carDatabase;
+    }
+
 
     void getAllCars2() {
         requestQueue = Volley.newRequestQueue(getActivity());
@@ -148,7 +145,6 @@ public class HomeFragment extends Fragment {
 //        });
 //        requestQueue.add(stringRequest);
     }
-
 
     void showAllCars() {
         requestQueue = Volley.newRequestQueue(getActivity());
@@ -202,24 +198,22 @@ public class HomeFragment extends Fragment {
 //        }
     }
 
+
     void ShowAndHideFilter() {
-        if (binding.carViewFilter.getVisibility() == View.GONE) {
-            binding.btnShowFilter.setText("عرض");
-        } else if (binding.carViewFilter.getVisibility() == View.VISIBLE) {
-            binding.btnShowFilter.setText("إخفاء");
-        }
-        binding.btnShowFilter.setOnClickListener(v -> {
+        binding.btnFilter.setOnClickListener(v -> {
             if (binding.carViewFilter.getVisibility() == View.GONE) {
                 binding.carViewFilter.setVisibility(View.VISIBLE);
-                binding.btnShowFilter.setText("إخفاء");
+                binding.btnFilter.setBackgroundResource(R.drawable.filter_checked);
                 binding.carViewFilter.startAnimation(AnimationUtils.loadAnimation(getActivity(),
                         R.anim.fadein_faster));
             } else if (binding.carViewFilter.getVisibility() == View.VISIBLE) {
                 binding.carViewFilter.setVisibility(View.GONE);
-                binding.btnShowFilter.setText("عرض");
+                binding.btnFilter.setBackgroundResource(R.drawable.filter_unchecked);
                 binding.carViewFilter.startAnimation(AnimationUtils.loadAnimation(getActivity(),
                         R.anim.fadeout));
             }
         });
     }
+
+
 }

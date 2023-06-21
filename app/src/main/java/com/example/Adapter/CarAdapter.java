@@ -16,9 +16,9 @@ public class CarAdapter extends BaseAdapter {
     Context context;
     ArrayList<Car> car_arrayList;
 
-    public CarAdapter(Context context, ArrayList<Car> fruit_arrayList) {
+    public CarAdapter(Context context, ArrayList<Car> cars_arrayList) {
         this.context = context;
-        this.car_arrayList = fruit_arrayList;
+        this.car_arrayList = cars_arrayList;
     }
 
     @Override
@@ -42,7 +42,7 @@ public class CarAdapter extends BaseAdapter {
         View view1 = LayoutInflater.from(context).inflate(R.layout.car_item, null);
         ImageView imageView = view1.findViewById(R.id.image);
         Car car = car_arrayList.get(i);
-        imageView.setImageDrawable(car.getImage());
+//        imageView.setImageDrawable(car.getImage());
         return view1;
     }
 }

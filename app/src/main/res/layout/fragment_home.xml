@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#14000000"
     tools:context="com.example.Screen_Fragment.HomeFragment">
 
     <androidx.recyclerview.widget.RecyclerView
@@ -21,30 +22,30 @@
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/textViewFilter"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="#098176"
-        android:enabled="false"
-        android:padding="@dimen/_10sdp"
+        android:layout_height="@dimen/_40sdp"
+        android:text="سيارتي"
+        android:textSize="@dimen/_18ssp"
         android:textColor="@color/white"
-        android:drawableRight="@drawable/baseline_filter_alt_24"
-        android:paddingLeft="@dimen/_65ssp"
-        android:text="تصفية السيارات"
-        android:textSize="@dimen/_12ssp"
+        android:enabled="false"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:backgroundTint="#098176"
+        android:background="@drawable/boder_botton_navigation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnShowFilter"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#A30B0B"
-        android:text="عرض"
-        android:textColor="@color/white"
-        android:textSize="@dimen/_12ssp"
+    <ImageView
+        android:id="@+id/btnFilter"
+        android:layout_width="@dimen/_20sdp"
+        android:layout_height="@dimen/_20sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:src="@drawable/filter_unchecked"
         app:layout_constraintBottom_toTopOf="@+id/rcHomeShowCars"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="@+id/textViewFilter"
+        app:layout_constraintTop_toTopOf="@+id/textViewFilter" />
+
+
 
     <androidx.cardview.widget.CardView
         android:id="@+id/carViewFilter"
