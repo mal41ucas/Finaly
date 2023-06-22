@@ -1,9 +1,15 @@
 package com.example.Screen_Home;
 
+import static com.example.Model.NamePrefStatic.EMAIL_REGISTER;
+import static com.example.Model.NamePrefStatic.FIRST_NAME;
+import static com.example.Model.NamePrefStatic.LAST_NAME;
+import static com.example.Model.NamePrefStatic.PHONE_NUMBER;
+
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -13,6 +19,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.animation.AnimationUtils;
@@ -32,11 +39,27 @@ public class ProfileActivity extends AppCompatActivity {
     private static final int RESULT_LOAD_IMG = 0;
     String photo = "";
 
+    SharedPreferences preferences;
+    String firstName,lastName, email,phone;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityProfileBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        preferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+
+        email = preferences.getString(EMAIL_REGISTER, "");
+        firstName = preferences.getString(FIRST_NAME, "");
+        lastName = preferences.getString(LAST_NAME, "");
+        phone = preferences.getString(PHONE_NUMBER, "");
+
+        binding.tvNameUserProfile.setText(firstName+" "+lastName);
+        binding.tvEmailProfile.setText(email);
+        binding.tvPhoneProfile.setText(phone);
+        binding.tvAddressProfile.setText("فلسطين - غزة");
 
         binding.back.setOnClickListener(view -> {
             finish();

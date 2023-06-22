@@ -7,12 +7,101 @@
     tools:context="com.example.Screen_Home.EditProfileActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cardEditPhone"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider17">
+
+        <ImageView
+            android:id="@+id/imageView1231"
+            android:layout_width="@dimen/_35sdp"
+            android:layout_height="@dimen/_28sdp"
+            android:layout_marginEnd="25dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/calls" />
+
+        <ImageView
+            android:id="@+id/imageView137"
+            android:layout_width="@dimen/_13sdp"
+            android:layout_height="@dimen/_13sdp"
+            android:layout_marginStart="32dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/baseline_arrow_back_ios_24" />
+
+        <TextView
+            android:id="@+id/textView1500"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_22sdp"
+            android:layout_marginEnd="15dp"
+            android:text="الهاتف"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_16sdp"
+            app:layout_constraintEnd_toStartOf="@+id/imageView1231"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvEditPhone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="+970 59 15 45 562"
+            android:textColor="#9A9A9A"
+            android:textSize="@dimen/_14sdp"
+            app:layout_constraintEnd_toEndOf="@+id/textView1500"
+            app:layout_constraintTop_toBottomOf="@+id/textView1500" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp"
+        android:background="#098176"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textView19"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="تعديل الملف الشخصي"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_16ssp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/back"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="15dp"
+            android:background="@drawable/back"
+            android:backgroundTint="@color/white"
+            android:contentDescription="TODO"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cardEditPassword"
         android:layout_width="match_parent"
-        android:layout_height="110dp"
-        android:layout_marginTop="5dp"
+        android:layout_height="100dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/divider17">
+        app:layout_constraintTop_toBottomOf="@+id/divider14">
 
         <ImageView
             android:id="@+id/imageView126"
@@ -58,10 +147,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardEditAddress" />
 
+    <View
+        android:id="@+id/divider14"
+        android:layout_width="0dp"
+        android:layout_height="0.8dp"
+        android:background="#DADADA"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardEditPhone" />
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cardEditAddress"
         android:layout_width="match_parent"
-        android:layout_height="110dp"
+        android:layout_height="100dp"
         android:layout_marginTop="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardEditEmail">
@@ -77,7 +175,7 @@
             app:srcCompat="@drawable/edit_map_icon" />
 
         <ImageView
-            android:id="@+id/imageView137"
+            android:id="@+id/imageView1375"
             android:layout_width="@dimen/_13sdp"
             android:layout_height="@dimen/_13sdp"
             android:layout_marginStart="32dp"
@@ -133,7 +231,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cardEditEmail"
         android:layout_width="match_parent"
-        android:layout_height="110dp"
+        android:layout_height="100dp"
         android:layout_marginTop="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/divider15">
@@ -185,7 +283,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cardEditName"
         android:layout_width="match_parent"
-        android:layout_height="110dp"
+        android:layout_height="100dp"
         android:layout_marginTop="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -235,41 +333,6 @@
             app:layout_constraintTop_toBottomOf="@+id/textView151" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <LinearLayout
-        android:id="@+id/linearLayoutProfile"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_50sdp"
-        android:background="#058F82"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <ImageButton
-            android:id="@+id/back"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:padding="@dimen/_12sdp"
-            android:layout_marginStart="@dimen/_10sdp"
-            android:background="@drawable/back"
-            android:backgroundTint="@color/white"
-            android:contentDescription="TODO" />
-
-        <TextView
-            android:id="@+id/textView19"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:paddingRight="@dimen/_35sdp"
-            android:text="تعديل الملف الشخصي"
-            android:textColor="@color/white"
-            android:textSize="@dimen/_20ssp" />
-
-    </LinearLayout>
-
     <TextView
         android:id="@+id/textView21"
         android:layout_width="wrap_content"
@@ -280,6 +343,6 @@
         android:textSize="@dimen/_18sdp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayoutProfile" />
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

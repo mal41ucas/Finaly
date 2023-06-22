@@ -34,13 +34,13 @@
                 android:id="@+id/tvFullNamePost"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_10sdp"
-                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="20dp"
                 android:text="اسم السيارة كامل"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_18ssp"
+                android:textSize="@dimen/_16ssp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imgViewCar" />
 
             <TextView
@@ -51,20 +51,19 @@
                 android:textColor="#FF0000"
                 android:textSize="@dimen/_16ssp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/tvFullNamePost"
+                app:layout_constraintStart_toStartOf="@+id/tvPosition"
                 app:layout_constraintTop_toBottomOf="@+id/tvPosition" />
 
             <TextView
                 android:id="@+id/tvPosition"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
                 android:text="الموقع"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_15sdp"
+                android:textSize="@dimen/_14sdp"
                 app:layout_constraintBottom_toBottomOf="@+id/tvTraveledDistance"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/tvFullNamePost"
-                app:layout_constraintStart_toStartOf="@+id/tvFullNamePost"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/tvTraveledDistance" />
 
             <View
@@ -85,7 +84,7 @@
                 android:layout_marginTop="@dimen/_5sdp"
                 android:text="المسافة المقطوعة"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_15ssp"
+                android:textSize="@dimen/_14ssp"
                 app:layout_constraintEnd_toStartOf="@+id/view2"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/view"
@@ -108,22 +107,20 @@
                 android:layout_height="wrap_content"
                 android:text="نوع الجير"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_15sdp"
+                android:textSize="@dimen/_14sdp"
                 app:layout_constraintBottom_toBottomOf="@+id/tvTraveledDistance"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/view2"
+                app:layout_constraintEnd_toEndOf="@+id/tvFullNamePost"
                 app:layout_constraintTop_toTopOf="@+id/tvTraveledDistance" />
 
 
             <CheckBox
                 android:id="@+id/checkFavorite"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/_10sdp"
+                android:layout_width="@dimen/_38sdp"
+                android:layout_height="@dimen/_36sdp"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:layout_marginBottom="@dimen/_10sdp"
                 android:checked="false"
+                android:layout_marginEnd="25dp"
                 android:foreground="@drawable/favorite_un_checked_24"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

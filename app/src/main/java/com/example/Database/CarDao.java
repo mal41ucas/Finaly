@@ -15,7 +15,6 @@ public interface CarDao {
     @Insert
     void insertCar(Car car);
 
-
     @Query("DELETE FROM cars WHERE id = :carId")
     void deleteCar(int carId);
 

@@ -7,39 +7,43 @@
     tools:context="com.example.Screen_Home.AddPostActivity">
 
 
-    <LinearLayout
-        android:id="@+id/linearLayout2"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_40sdp"
-        android:background="#058F82"
-        android:orientation="horizontal"
+        android:background="#098176"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textView19"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="إضافة سيارة"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_17ssp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageButton
             android:id="@+id/back"
             android:layout_width="@dimen/_20sdp"
             android:layout_height="@dimen/_20sdp"
             android:layout_gravity="center_vertical"
-            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginStart="15dp"
             android:background="@drawable/back"
             android:backgroundTint="@color/white"
-            android:contentDescription="TODO" />
-
-        <TextView
-            android:id="@+id/textView19"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:paddingRight="@dimen/_50sdp"
-            android:text="إضافة سيارة"
-            android:textColor="@color/white"
-            android:textSize="@dimen/_20ssp" />
-
-    </LinearLayout>
+            android:contentDescription="TODO"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ScrollView
         android:layout_width="match_parent"
@@ -48,7 +52,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -62,7 +66,7 @@
                 android:layout_marginTop="30dp"
                 android:layout_marginEnd="20dp"
                 app:cardCornerRadius="15dp"
-                app:cardElevation="15dp"
+                app:cardElevation="3dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
@@ -71,38 +75,23 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/rcHomeFragment"
+                    <ImageView
+                        android:id="@+id/imgAddCar"
                         android:layout_width="match_parent"
                         android:layout_height="250dp"
-                        android:orientation="horizontal"
-                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/add_photo"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
-
-                    <TextView
-                        android:id="@+id/tvCountImage"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="13dp"
-                        android:background="@drawable/shape_bottom_nav"
-                        android:gravity="center"
-                        android:hint="0/0"
-                        android:padding="5dp"
-                        android:textColor="@color/black"
-                        android:textSize="15sp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
             </androidx.cardview.widget.CardView>
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/buttonGellary"
+                android:id="@+id/buttonGallery"
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_marginStart="20dp"
@@ -241,9 +230,9 @@
                 android:hint="الموديل"
                 android:inputType="textPersonName"
                 android:paddingRight="20dp"
-                app:layout_constraintEnd_toEndOf="@+id/buttonGellary"
-                app:layout_constraintStart_toStartOf="@+id/buttonGellary"
-                app:layout_constraintTop_toBottomOf="@+id/buttonGellary" />
+                app:layout_constraintEnd_toEndOf="@+id/buttonGallery"
+                app:layout_constraintStart_toStartOf="@+id/buttonGallery"
+                app:layout_constraintTop_toBottomOf="@+id/buttonGallery" />
 
             <TextView
                 android:id="@+id/textView12"

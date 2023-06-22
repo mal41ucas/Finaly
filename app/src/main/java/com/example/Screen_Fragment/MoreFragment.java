@@ -1,7 +1,13 @@
 package com.example.Screen_Fragment;
 
+import static android.content.Context.MODE_PRIVATE;
+
+import static com.example.Model.NamePrefStatic.FIRST_NAME;
+import static com.example.Model.NamePrefStatic.LAST_NAME;
+
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -9,6 +15,7 @@ import android.os.Bundle;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
+import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -33,6 +40,7 @@ import com.example.projectcar.databinding.FragmentMoreBinding;
 public class MoreFragment extends Fragment {
 
     FragmentMoreBinding binding;
+    SharedPreferences preferences;
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
@@ -75,6 +83,12 @@ public class MoreFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = FragmentMoreBinding.inflate(inflater);
+
+        preferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        preferences = getActivity().getSharedPreferences("MyPrefs", MODE_PRIVATE);
+
+        binding.tvNameUser.setText(preferences.getString(FIRST_NAME, "") + " " +
+                preferences.getString(LAST_NAME, ""));
         binding.cardViewProfile.setOnClickListener(v -> {
             startActivity(new Intent(getActivity(), ProfileActivity.class));
         });

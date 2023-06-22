@@ -1,5 +1,7 @@
 package com.example.Screen_Home;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -11,7 +13,9 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.Adapter.SelectImageAdapter;
@@ -26,25 +30,25 @@ import com.example.projectcar.databinding.ActivityAddPostBinding;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class AddPostActivity extends AppCompatActivity implements View.OnClickListener {
+public class AddPostActivity extends AppCompatActivity {
 
+    private static final int REQUEST_CODE_SELECT_IMAGE = 1;
     ActivityAddPostBinding binding;
     ArrayList<Uri> list;
     String carTypeOfFuel;
     String carGearType;
-    int year,carMileage,price;
-
+    int year, carMileage, price;
     Car car;
     Random random;
-
     CarDao carDao;
-
     private static getCarDatabase carDatabase;
+    private Uri selectedImageUri;
 
-    SelectImageAdapter adaptor;
-    String colum[] = {
-            Manifest.permission.WRITE_EXTERNAL_STORAGE,
-            Manifest.permission.READ_EXTERNAL_STORAGE};
+
+//    SelectImageAdapter adaptor;
+//    String colum[] = {
+//            Manifest.permission.WRITE_EXTERNAL_STORAGE,
+//            Manifest.permission.READ_EXTERNAL_STORAGE};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -118,55 +122,90 @@ public class AddPostActivity extends AppCompatActivity implements View.OnClickLi
             finish();
         });
 
-        list = new ArrayList<>();
-        adaptor = new SelectImageAdapter(list);
-        binding.rcHomeFragment.setAdapter(adaptor);
-        binding.buttonGellary.setOnClickListener(this);
-        if ((ActivityCompat.checkSelfPermission(
-                AddPostActivity.this, colum[0]) != PackageManager.PERMISSION_GRANTED) &&
-                (ActivityCompat.checkSelfPermission(
-                        AddPostActivity.this, colum[1]) != PackageManager.PERMISSION_GRANTED)) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                requestPermissions(colum, 123);
+        ActivityResultLauncher<String> imagePickerLauncher = registerForActivityResult(new ActivityResultContracts.GetContent(), result -> {
+            if (result != null) {
+                selectedImageUri = result;
+                // Do something with the selected image URI (e.g., display it in an ImageView)
+                binding.imgAddCar.setImageURI(selectedImageUri);
             }
-        }
+        });
+
+        binding.buttonGallery.setOnClickListener(v -> {
+            imagePickerLauncher.launch("image/*");
+        });
+
+
+//        binding.buttonGallery.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                // Create an Intent to pick an image from the gallery
+//                Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+//                startActivityForResult(intent, REQUEST_CODE_SELECT_IMAGE);
+//            }
+//        });
+        //        list = new ArrayList<>();
+//        adaptor = new SelectImageAdapter(list);
+//        binding.rcHomeFragment.setAdapter(adaptor);
+//        binding.buttonGellary.setOnClickListener(this);
+//        if ((ActivityCompat.checkSelfPermission(
+//                AddPostActivity.this, colum[0]) != PackageManager.PERMISSION_GRANTED) &&
+//                (ActivityCompat.checkSelfPermission(
+//                        AddPostActivity.this, colum[1]) != PackageManager.PERMISSION_GRANTED)) {
+//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+//                requestPermissions(colum, 123);
+//            }
+//        }
+//    }
+//
+//    @Override
+//    public void onClick(View view) {
+//
+//        switch (view.getId()) {
+//            case R.id.buttonGellary:
+//                openGalley();
+//                break;
+//        }
+//
+//    }
+//
+//    private void openGalley() {
+//        Intent intent = new Intent();
+//        intent.setType("image/*");
+//        intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
+//        intent.setAction(Intent.ACTION_GET_CONTENT);
+//        startActivityForResult(Intent.createChooser(intent, "Selcet Picture"), 123);
+//    }
+//
+//    @Override
+//    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+//        if (requestCode == 123 && resultCode == RESULT_OK) {
+//            if (data.getClipData() != null) {
+//                int x = data.getClipData().getItemCount();
+//                for (int i = 0; i < x; i++) {
+//                    list.add(data.getClipData().getItemAt(i).getUri());
+//                }
+//                adaptor.notifyDataSetChanged();
+//                binding.tvCountImage.setText(list.size() + "/" + binding.rcHomeFragment.getAdapter().getItemCount());
+//            } else if (data.getData() != null) {
+//                String imgurl = data.getData().getPath();
+//                list.add(Uri.parse(imgurl));
+//            }
+//        }
+//    }
     }
-
-    @Override
-    public void onClick(View view) {
-
-        switch (view.getId()) {
-            case R.id.buttonGellary:
-                openGalley();
-                break;
-        }
-
-    }
-
-    private void openGalley() {
-        Intent intent = new Intent();
-        intent.setType("image/*");
-        intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
-        intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(Intent.createChooser(intent, "Selcet Picture"), 123);
-    }
-
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == 123 && resultCode == RESULT_OK) {
-            if (data.getClipData() != null) {
-                int x = data.getClipData().getItemCount();
-                for (int i = 0; i < x; i++) {
-                    list.add(data.getClipData().getItemAt(i).getUri());
-                }
-                adaptor.notifyDataSetChanged();
-                binding.tvCountImage.setText(list.size() + "/" + binding.rcHomeFragment.getAdapter().getItemCount());
-            } else if (data.getData() != null) {
-                String imgurl = data.getData().getPath();
-                list.add(Uri.parse(imgurl));
-            }
-        }
-    }
+//    @Override
+//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+//
+//        if (requestCode == REQUEST_CODE_SELECT_IMAGE && resultCode == RESULT_OK && data != null) {
+//            // The user has selected an image
+//            Uri selectedImageUri = data.getData();
+//
+//            // Do something with the selected image URI (e.g., display it in an ImageView)
+//            ImageView imageView = findViewById(R.id.imageView);
+//            imageView.setImageURI(selectedImageUri);
+//        }
+//    }
 
 }

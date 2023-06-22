@@ -6,11 +6,26 @@
     android:layout_height="match_parent"
     tools:context="com.example.Screen_Fragment.FavoriteFragment" >
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/textviewFavorite"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_40sdp"
+        android:text="سياراتي المفضلة"
+        android:textSize="@dimen/_16ssp"
+        android:textColor="@color/white"
+        android:enabled="false"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:backgroundTint="#098176"
+        android:background="@drawable/boder_botton_navigation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

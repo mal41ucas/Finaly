@@ -6,46 +6,53 @@
     android:layout_height="match_parent"
     tools:context="com.example.Screen_Home.MyCarsActivity">
 
-    <LinearLayout
-        android:id="@+id/linearLayoutMyCar"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_50sdp"
-        android:orientation="horizontal"
-        android:background="#058F82"
+        android:layout_height="@dimen/_40sdp"
+        android:background="#098176"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textView19"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="سياراتي"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_18ssp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageButton
             android:id="@+id/back"
             android:layout_width="@dimen/_20sdp"
             android:layout_height="@dimen/_20sdp"
-            android:layout_marginStart="@dimen/_10sdp"
-            android:backgroundTint="@color/white"
-            android:background="@drawable/back"
             android:layout_gravity="center_vertical"
-            android:contentDescription="TODO" />
-
-        <TextView
-            android:id="@+id/textView19"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="سياراتي"
-            android:paddingRight="@dimen/_50sdp"
-            android:textColor="@color/white"
-            android:textSize="@dimen/_20ssp"
-            android:gravity="center"
-            android:layout_gravity="center_vertical"/>
-
-    </LinearLayout>
+            android:layout_marginStart="15dp"
+            android:background="@drawable/back"
+            android:backgroundTint="@color/white"
+            android:contentDescription="TODO"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcMyCars"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        tools:listitem="@layout/model_rc_home"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/linearLayoutMyCar" />
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+        tools:itemCount="10"
+        tools:listitem="@layout/model_rc_home" />
 </androidx.constraintlayout.widget.ConstraintLayout>

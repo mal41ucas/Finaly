@@ -1,11 +1,17 @@
 package com.example.Screen_Login_Register;
 
+import static com.example.Model.NamePrefStatic.EMAIL_REGISTER;
+import static com.example.Model.NamePrefStatic.PASSWORD_REGISTER;
+
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.view.animation.AnimationUtils;
 import android.widget.Toast;
@@ -18,6 +24,8 @@ import com.example.projectcar.databinding.ActivityLoginBinding;
 public class LoginActivity extends AppCompatActivity {
 
     ActivityLoginBinding binding;
+    SharedPreferences preferences;
+    String email, password;
     boolean doubleBackToExitPressedOnce = false;
 
     @Override
@@ -26,15 +34,28 @@ public class LoginActivity extends AppCompatActivity {
         binding = ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        preferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+
+        email = preferences.getString(EMAIL_REGISTER, "");
+        password = preferences.getString(PASSWORD_REGISTER, "");
+
         binding.btnSignIn.setOnClickListener(view -> {
-            if (binding.dividerM.getVisibility() == View.VISIBLE) {
-                startActivity(new Intent(getBaseContext(), HomeActivity.class));
-                finishAffinity();
-                Toast.makeText(this, "Merchant", Toast.LENGTH_SHORT).show();
-            }
-            if (binding.dividerC.getVisibility() == View.VISIBLE) {
-                Toast.makeText(this, "Customer", Toast.LENGTH_SHORT).show();
-            }
+//            if (binding.dividerM.getVisibility() == View.VISIBLE) {
+//                startActivity(new Intent(getBaseContext(), HomeActivity.class));
+//                finishAffinity();
+//            }
+//            if (binding.dividerC.getVisibility() == View.VISIBLE) {
+//
+//            }
+            if (binding.edEmailLogin.getText().toString().equals(email)) {
+                if (binding.edPasswordLogin.getText().toString().equals(password)) {
+                    startActivity(new Intent(getBaseContext(), HomeActivity.class));
+                    finishAffinity();
+                } else
+                    Toast.makeText(this, "Error in Your Password", Toast.LENGTH_SHORT).show();
+            } else
+                Toast.makeText(this, "Error in Your Email", Toast.LENGTH_SHORT).show();
         });
 
         binding.btnSignUp.setOnClickListener(view -> {
@@ -42,7 +63,7 @@ public class LoginActivity extends AppCompatActivity {
         });
 
         binding.btnGuest.setOnClickListener(view -> {
-            startActivity(new Intent(getBaseContext(), ViewCarsActivity.class));
+//            startActivity(new Intent(getBaseContext(), ViewCarsActivity.class));
         });
         Animation();
         selectAccount();
