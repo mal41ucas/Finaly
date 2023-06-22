@@ -1,5 +1,7 @@
 package com.example.Screen_Home;
 
+import static com.example.Model.NamePrefStatic.EMAIL_REGISTER;
+import static com.example.Model.NamePrefStatic.PHONE_NUMBER;
 import static java.security.AccessController.getContext;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -7,9 +9,11 @@ import androidx.room.Room;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.widget.Toast;
 
 import com.example.Database.CarDao;
@@ -26,12 +30,19 @@ public class ViewCarsActivity extends AppCompatActivity {
     private static getCarDatabase carDatabase;
     Car car ;
 
+    SharedPreferences preferences;
+    String phone;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityViewCarsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        preferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+
+        phone = preferences.getString(PHONE_NUMBER, "");
 
         Intent intent = getIntent();
         carDatabase = Room.databaseBuilder(this, getCarDatabase.class, "car-database").allowMainThreadQueries().build();
@@ -83,7 +94,7 @@ public class ViewCarsActivity extends AppCompatActivity {
 
         binding.fABCall.setOnClickListener(view -> {
             Intent goToPhoneCalls = new Intent(Intent.ACTION_DIAL);
-            goToPhoneCalls.setData(Uri.parse("tel:0599791805"));
+            goToPhoneCalls.setData(Uri.parse("tel:"+phone));
             startActivity(goToPhoneCalls);
         });
 

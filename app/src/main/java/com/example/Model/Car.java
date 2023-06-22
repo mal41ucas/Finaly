@@ -8,7 +8,6 @@ import androidx.room.PrimaryKey;
 public class Car {
     @PrimaryKey(autoGenerate = true)
     private int id;
-
     @ColumnInfo(name = "car_name")
     private String carName;
 

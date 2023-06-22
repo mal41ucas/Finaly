@@ -6,39 +6,43 @@
     android:layout_height="match_parent"
     tools:context="com.example.Screen_Home.ViewCarsActivity">
 
-    <LinearLayout
-        android:id="@+id/linearLayout2"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_40sdp"
-        android:orientation="horizontal"
-        android:background="#058F82"
+        android:background="#098176"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:id="@+id/back"
-            android:layout_width="@dimen/_20sdp"
-            android:layout_height="@dimen/_20sdp"
-            android:layout_marginStart="@dimen/_10sdp"
-            android:backgroundTint="@color/white"
-            android:background="@drawable/back"
-            android:layout_gravity="center_vertical"
-            android:contentDescription="TODO" />
-
         <TextView
             android:id="@+id/textView19"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
             android:layout_weight="1"
-            android:text="تفاصيل السيارة"
-            android:paddingRight="@dimen/_50sdp"
-            android:textColor="@color/white"
-            android:textSize="@dimen/_20ssp"
             android:gravity="center"
-            android:layout_gravity="center_vertical"/>
+            android:text="تفاصيل السيارة"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_16ssp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    </LinearLayout>
+        <ImageButton
+            android:id="@+id/back"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="15dp"
+            android:background="@drawable/back"
+            android:backgroundTint="@color/white"
+            android:contentDescription="TODO"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ScrollView
         android:layout_width="match_parent"
@@ -46,7 +50,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -59,8 +63,8 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="30dp"
                 android:layout_marginEnd="20dp"
-                app:cardCornerRadius="15dp"
-                app:cardElevation="15dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="5dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
@@ -69,31 +73,15 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
-                    <androidx.recyclerview.widget.RecyclerView
+                    <ImageView
                         android:id="@+id/rcHomeFragment"
                         android:layout_width="match_parent"
                         android:layout_height="250dp"
-                        android:orientation="horizontal"
-                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <TextView
-                        android:id="@+id/tvCountImage"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="13dp"
-                        android:background="@drawable/shape_bottom_nav"
-                        android:gravity="center"
-                        android:hint="0/0"
-                        android:padding="5dp"
-                        android:textColor="@color/black"
-                        android:textSize="15sp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent" />
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:src="@drawable/add_photos"/>
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -104,6 +92,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
+                android:layout_marginRight="@dimen/_10sdp"
                 android:hint="إسم السيارة"
                 android:textColor="#2196F3"
                 android:textSize="@dimen/_18ssp"
@@ -393,15 +382,15 @@
         android:id="@+id/fABCall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:clickable="true"
-        android:layout_marginEnd="@dimen/_18sdp"
         android:layout_marginBottom="@dimen/_25sdp"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:backgroundTint="@color/teal_200"
+        android:clickable="true"
+        android:elevation="@dimen/_15sdp"
         android:foregroundGravity="bottom|right"
         app:fabSize="normal"
-        android:backgroundTint="@color/teal_200"
-        android:elevation="@dimen/_15sdp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/baseline_phone_enabled_24" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/ic_baseline_local_phone_24" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

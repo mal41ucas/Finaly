@@ -14,6 +14,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -114,8 +115,42 @@ public class AddPostActivity extends AppCompatActivity {
                 position);
 
         binding.btnSave.setOnClickListener(v -> {
-            carDao.insertCar(car);
-            finish();
+            if (!TextUtils.isEmpty(binding.edModel.getText().toString())) {
+                if (!TextUtils.isEmpty(binding.edYear.getText().toString())) {
+                    if (!TextUtils.isEmpty(binding.edPrice.getText().toString())) {
+                        if (!TextUtils.isEmpty(binding.edType.getText().toString())) {
+                            if (!TextUtils.isEmpty(binding.edMileage.getText().toString())) {
+                                if (!TextUtils.isEmpty(binding.edLocation.getText().toString())) {
+                                    if (!TextUtils.isEmpty(binding.edDescription.getText().toString())) {
+                                        if (!TextUtils.isEmpty(binding.edDors.getText().toString())) {
+                                            if (!TextUtils.isEmpty(binding.edCylinders.getText().toString())) {
+                                                if (binding.radioManual.isChecked() || binding.radioAutomatic.isChecked()) {
+                                                    if (binding.radioPetrol.isChecked() || binding.radioHybrid.isChecked()
+                                                            || binding.radioElectric.isChecked() || binding.radioDiesel.isChecked()) {
+                                                        carDao.insertCar(car);
+                                                        finish();
+                                                    } else
+                                                        Toast.makeText(this, "الرجاء اختيار نوع الوقود", Toast.LENGTH_SHORT).show();
+                                                } else
+                                                    Toast.makeText(this, "الرجاء اختيار نوع المحرك", Toast.LENGTH_SHORT).show();
+                                            } else
+                                                Toast.makeText(this, "الرجاء ادخال الاسطوانات", Toast.LENGTH_SHORT).show();
+                                        } else
+                                            Toast.makeText(this, "الرجاء ادخال عدد الابواب", Toast.LENGTH_SHORT).show();
+                                    } else
+                                        Toast.makeText(this, "الرجاء ادخال التفاصيل", Toast.LENGTH_SHORT).show();
+                                } else
+                                    Toast.makeText(this, "الرجاء ادخال العنوان", Toast.LENGTH_SHORT).show();
+                            } else
+                                Toast.makeText(this, "الرجاء ادخال عدد الكيلو مترات", Toast.LENGTH_SHORT).show();
+                        } else
+                            Toast.makeText(this, "الرجاء ادخال النوع", Toast.LENGTH_SHORT).show();
+                    } else
+                        Toast.makeText(this, "الرجاء ادخال السعر", Toast.LENGTH_SHORT).show();
+                } else
+                    Toast.makeText(this, "الرجاء ادخال السنه", Toast.LENGTH_SHORT).show();
+            } else
+                Toast.makeText(this, "الرجاء ادخال الموديل", Toast.LENGTH_SHORT).show();
         });
 
         binding.back.setOnClickListener(v -> {

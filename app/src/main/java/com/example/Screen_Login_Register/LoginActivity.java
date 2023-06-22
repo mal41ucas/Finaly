@@ -53,9 +53,9 @@ public class LoginActivity extends AppCompatActivity {
                     startActivity(new Intent(getBaseContext(), HomeActivity.class));
                     finishAffinity();
                 } else
-                    Toast.makeText(this, "Error in Your Password", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "الرجاء التأكد من كلمة المرور", Toast.LENGTH_SHORT).show();
             } else
-                Toast.makeText(this, "Error in Your Email", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "الرجاء التأكد من البريد الإلكتروني", Toast.LENGTH_SHORT).show();
         });
 
         binding.btnSignUp.setOnClickListener(view -> {

@@ -69,17 +69,17 @@ public class RegisterActivity extends AppCompatActivity {
                                         finishAffinity();
                                     }
                                 } else
-                                    Toast.makeText(getBaseContext(), "Password not Identical you must more be than ``6 ", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getBaseContext(), "كلمة المرور ليست متطابقة", Toast.LENGTH_SHORT).show();
                             } else
-                                Toast.makeText(getBaseContext(), "Password not Exist", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getBaseContext(), "تأكد من كلمة المرور و تكون من ستة حروف او اكتر", Toast.LENGTH_SHORT).show();
                         } else
-                            Toast.makeText(getBaseContext(), "Email not Exist", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getBaseContext(), "تأكد من البريد الإلكتروني", Toast.LENGTH_SHORT).show();
                     } else
-                        Toast.makeText(getBaseContext(), "Phone not Exist", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getBaseContext(), "تأكد من رقم الهاتف", Toast.LENGTH_SHORT).show();
                 } else
-                    Toast.makeText(getBaseContext(), "Last not Exist", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getBaseContext(), "تأكد من الإسم الاخير", Toast.LENGTH_SHORT).show();
             } else
-                Toast.makeText(getBaseContext(), "First Name not Exist", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getBaseContext(), "تأكد من الإسم الاول", Toast.LENGTH_SHORT).show();
         });
 
         binding.tvSginInRegister.setOnClickListener(view -> {
