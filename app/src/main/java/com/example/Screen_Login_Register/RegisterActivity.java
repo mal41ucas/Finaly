@@ -77,9 +77,9 @@ public class RegisterActivity extends AppCompatActivity {
                     } else
                         Toast.makeText(getBaseContext(), "تأكد من رقم الهاتف", Toast.LENGTH_SHORT).show();
                 } else
-                    Toast.makeText(getBaseContext(), "تأكد من الإسم الاخير", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getBaseContext(), "تأكد من الإسم الأخير", Toast.LENGTH_SHORT).show();
             } else
-                Toast.makeText(getBaseContext(), "تأكد من الإسم الاول", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getBaseContext(), "تأكد من الإسم الأول", Toast.LENGTH_SHORT).show();
         });
 
         binding.tvSginInRegister.setOnClickListener(view -> {
