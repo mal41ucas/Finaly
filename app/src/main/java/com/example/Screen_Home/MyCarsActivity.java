@@ -38,9 +38,9 @@ public class MyCarsActivity extends AppCompatActivity {
             finish();
         });
 
-        List<Car> carList = carDao.getAllCars();
-
-        showCarAdapter = new ShowCarAdapter(getBaseContext(), carList);
-        binding.rcMyCars.setAdapter(showCarAdapter);
+//        List<Car> carList = carDao.getAllCars();
+//
+//        showCarAdapter = new ShowCarAdapter(getBaseContext(), carList);
+//        binding.rcMyCars.setAdapter(showCarAdapter);
     }
 }

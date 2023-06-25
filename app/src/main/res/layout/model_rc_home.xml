@@ -19,15 +19,34 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView6"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                app:cardCornerRadius="@dimen/_100sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/imagePerson"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:scaleType="centerCrop"
+                    app:srcCompat="@drawable/p_1" />
+            </androidx.cardview.widget.CardView>
+
             <ImageView
                 android:id="@+id/imgViewCar"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_170sdp"
+                android:layout_marginTop="@dimen/_10sdp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/car2"
+                android:src="@drawable/cover_3"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toBottomOf="@+id/textDescription" />
 
 
             <TextView
@@ -51,11 +70,11 @@
                 android:textColor="#FF0000"
                 android:textSize="@dimen/_16ssp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/tvPosition"
-                app:layout_constraintTop_toBottomOf="@+id/tvPosition" />
+                app:layout_constraintStart_toStartOf="@+id/tvLocation"
+                app:layout_constraintTop_toBottomOf="@+id/tvLocation" />
 
             <TextView
-                android:id="@+id/tvPosition"
+                android:id="@+id/tvLocation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
@@ -74,7 +93,7 @@
                 app:layout_constraintBottom_toBottomOf="@+id/tvTraveledDistance"
                 app:layout_constraintEnd_toStartOf="@+id/tvTraveledDistance"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/tvPosition"
+                app:layout_constraintStart_toEndOf="@+id/tvLocation"
                 app:layout_constraintTop_toTopOf="@+id/tvTraveledDistance" />
 
             <TextView
@@ -112,19 +131,43 @@
                 app:layout_constraintEnd_toEndOf="@+id/tvFullNamePost"
                 app:layout_constraintTop_toTopOf="@+id/tvTraveledDistance" />
 
-
             <CheckBox
                 android:id="@+id/checkFavorite"
                 android:layout_width="@dimen/_38sdp"
                 android:layout_height="@dimen/_36sdp"
                 android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginEnd="25dp"
                 android:layout_marginBottom="@dimen/_10sdp"
                 android:checked="false"
-                android:layout_marginEnd="25dp"
                 android:foreground="@drawable/favorite_un_checked_24"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvTraveledDistance" />
+
+            <TextView
+                android:id="@+id/textPerson"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:hint="محمد مصطفى"
+                android:gravity="right"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_16ssp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/cardView6"
+                app:layout_constraintEnd_toStartOf="@+id/cardView6"
+                app:layout_constraintTop_toTopOf="@+id/cardView6" />
+
+            <TextView
+                android:id="@+id/textDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="TextView"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12ssp"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:layout_constraintEnd_toEndOf="@+id/cardView6"
+                app:layout_constraintTop_toBottomOf="@+id/cardView6" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>

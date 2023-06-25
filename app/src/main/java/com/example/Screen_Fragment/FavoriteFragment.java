@@ -8,6 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.Interface.OnItemClickListener;
+import com.example.Model.ShowCar;
 import com.example.projectcar.databinding.FragmentFavoriteBinding;
 
 /**

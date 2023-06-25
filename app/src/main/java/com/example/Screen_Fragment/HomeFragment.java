@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
 import android.widget.ArrayAdapter;
+import android.widget.Toast;
 
 
 import com.android.volley.RequestQueue;
@@ -17,7 +18,9 @@ import com.android.volley.toolbox.Volley;
 import com.example.Adapter.ShowCarAdapter;
 import com.example.Database.CarDao;
 import com.example.Database.getCarDatabase;
+import com.example.Interface.OnItemClickListener;
 import com.example.Model.Car;
+import com.example.Model.ShowCar;
 import com.example.projectcar.R;
 import com.example.projectcar.databinding.FragmentHomeBinding;
 
@@ -32,7 +35,7 @@ public class HomeFragment extends Fragment {
     private static getCarDatabase carDatabase;
     CarDao carDao;
     ShowCarAdapter showCarAdapter;
-    ArrayList<Car> cars;
+    ArrayList<ShowCar> showCars;
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
@@ -83,31 +86,47 @@ public class HomeFragment extends Fragment {
                 (getActivity(), android.R.layout.simple_spinner_item, yearsList);
         binding.spinnerYear.setAdapter(yearsAdapter);
 
-        cars = new ArrayList<>();
+        showCars = new ArrayList<>();
 
 //        carDao.deleteCar(1);
 //        carDao.deleteCar(2);
 //        carDao.deleteCar(3);
 //        carDao.deleteCar(4);
 
-//            Car car1 = new Car(1, "BMW", true, 20000, 15000, "Sedan", 2013, 1500, "High Material Quality", "Gas", "Red", "Automatic", "BMW","Gaza");
-//            Car car2 = new Car(2, "Fiat", true, 10000, 10000, "Combat", 2010, 2000, "High Material Quality", "Gas", "Red", "Automatic", "BMW","Rafah");
-//            Car car3 = new Car(3, "Mazda", true, 150000, 15000, "HatchBack", 2020, 1600, "High Material Quality", "Gas", "Red", "Automatic", "BMW","Remal");
-//            Car car4 = new Car(4, "Mercedes", true, 15000, 15000, "Luxury", 2023, 6500, "High Material Quality", "Gas", "Red", "Automatic", "BMW","Khanyouns");
-//
-//            cars.add(car1);
-//            cars.add(car2);
-//            cars.add(car3);
-//            cars.add(car4);
-//
-//            carDao.insertCar(car1);
-//            carDao.insertCar(car2);
-//            carDao.insertCar(car3);
-//            carDao.insertCar(car4);
+        ShowCar car1 = new ShowCar(R.drawable.cover_1, R.drawable.p_1, "بي أم", "41200", "430", "MOUSAB", "اوتوماتيك", "بيت حنون", false,
+                "زودت إيه 8 بمحرك مكون من ثمانية اسطوانات سعة 4.2 لتر يولد قوة 372 حصان عند 3500 دورة بالدقيقة يمكنها من التسارع من 0 إلى 100 كلم بالساعة بغضون 5.7 ثانية وسرعة قصوى تصل إلى 250 كلم مثبتة إلكترونيا"
+        );
+        ShowCar car2 = new ShowCar(R.drawable.cover_2, R.drawable.p_2, "نمبرجين", "37800", "430", "Shukri", "اوتوماتيك", "الوسطى", false,
+                "زودت إيه 8 بمحرك مكون من ثمانية اسطوانات سعة 4.2 لتر يولد قوة 372 حصان عند 3500 دورة بالدقيقة يمكنها من التسارع من 0 إلى 100 كلم بالساعة بغضون 5.7 ثانية وسرعة قصوى تصل إلى 250 كلم مثبتة إلكترونيا"
+        );
+        ShowCar car3 = new ShowCar(R.drawable.cover_3, R.drawable.p_3, "تسلا", "96200", "430", "Ahmad", "اوتوماتيك", "بيت لاهيا", false,
+                "زودت إيه 8 بمحرك مكون من ثمانية اسطوانات سعة 4.2 لتر يولد قوة 372 حصان عند 3500 دورة بالدقيقة يمكنها من التسارع من 0 إلى 100 كلم بالساعة بغضون 5.7 ثانية وسرعة قصوى تصل إلى 250 كلم مثبتة إلكترونيا"
+        );
+        ShowCar car4 = new ShowCar(R.drawable.cover_4, R.drawable.p_2, "نمبرجين", "109700", "430", "Muhammad", "اوتوماتيك", "غزة", false,
+                "زودت إيه 8 بمحرك مكون من ثمانية اسطوانات سعة 4.2 لتر يولد قوة 372 حصان عند 3500 دورة بالدقيقة يمكنها من التسارع من 0 إلى 100 كلم بالساعة بغضون 5.7 ثانية وسرعة قصوى تصل إلى 250 كلم مثبتة إلكترونيا"
+        );
+        ShowCar car5 = new ShowCar(R.drawable.cover_5, R.drawable.p_1, "أودي", "85400", "430", "Mustafa", "اوتوماتيك", "رفح", false,
+                "زودت إيه 8 بمحرك مكون من ثمانية اسطوانات سعة 4.2 لتر يولد قوة 372 حصان عند 3500 دورة بالدقيقة يمكنها من التسارع من 0 إلى 100 كلم بالساعة بغضون 5.7 ثانية وسرعة قصوى تصل إلى 250 كلم مثبتة إلكترونيا"
+        );
+        showCars.add(car1);
+        showCars.add(car2);
+        showCars.add(car3);
+        showCars.add(car4);
+        showCars.add(car5);
+        showCars.add(car1);
+        showCars.add(car2);
+        showCars.add(car3);
+        showCars.add(car4);
+        showCars.add(car5);
 
-        List<Car> carList = carDao.getAllCars();
+//        carDao.insertCar(car1);
+//        carDao.insertCar(car2);
+//        carDao.insertCar(car3);
+//        carDao.insertCar(car4);
 
-        showCarAdapter = new ShowCarAdapter(getActivity(), carList);
+//        List<ShowCar> carList = carDao.getAllCars();
+
+        showCarAdapter = new ShowCarAdapter(getActivity(), showCars);
         binding.rcHomeShowCars.setAdapter(showCarAdapter);
         ShowAndHideFilter();
         return binding.getRoot();

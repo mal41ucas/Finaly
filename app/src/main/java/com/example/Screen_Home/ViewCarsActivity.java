@@ -19,6 +19,7 @@ import android.widget.Toast;
 import com.example.Database.CarDao;
 import com.example.Database.getCarDatabase;
 import com.example.Model.Car;
+import com.example.Model.ShowCar;
 import com.example.Screen_Fragment.HomeFragment;
 import com.example.projectcar.R;
 import com.example.projectcar.databinding.ActivityViewCarsBinding;
@@ -26,10 +27,10 @@ import com.example.projectcar.databinding.ActivityViewCarsBinding;
 public class ViewCarsActivity extends AppCompatActivity {
 
     ActivityViewCarsBinding binding;
-    CarDao carDao;
-    private static getCarDatabase carDatabase;
-    Car car ;
-
+//    CarDao carDao;
+//    private static getCarDatabase carDatabase;
+//    Car car ;
+//    ShowCar showCar;
     SharedPreferences preferences;
     String phone;
 
@@ -45,37 +46,52 @@ public class ViewCarsActivity extends AppCompatActivity {
         phone = preferences.getString(PHONE_NUMBER, "");
 
         Intent intent = getIntent();
-        carDatabase = Room.databaseBuilder(this, getCarDatabase.class, "car-database").allowMainThreadQueries().build();
-        carDao = ViewCarsActivity.getCarDatabase().carDao();
-        if (intent != null) {
-            int carId = intent.getIntExtra("carId", 0);
-            car =  carDao.getCarById(carId);
-            car = new Car(car.getId(),
-                    car.getCarName(),
-                    car.isFavorite(),
-                    car.getMileage(),
-                    car.getPrice(),
-                    car.getCarModel(),
-                    car.getYear(),
-                    car.getEngineCapacity(),
-                    car.getDescription(),
-                    car.getTypeOfFuel(),
-                    car.getColour(),
-                    car.getTypeOfGear(),
-                    car.getManufactureType(),
-                    car.getPosition());
-            Toast.makeText(this, ""+car.getId(), Toast.LENGTH_LONG).show();
-            binding.tvNameCar.setText(car.getCarName());
-            binding.tvPriceCar.setText(car.getPrice() + " USD");
-            binding.tvDeatilsCar.setText(car.getDescription());
-            binding.tvGear.setText(car.getTypeOfGear());
-            binding.tvPetrol.setText(car.getTypeOfFuel());
-            binding.tvLocation.setText(car.getPosition());
-            binding.tvMileage.setText(car.getMileage()+"\\km");
-            if (car.isFavorite()){
-                binding.checkboxFavoriteCar.setForeground(getDrawable(R.drawable.favorite_checked_24));
-            }
-        }
+        String carName = intent.getStringExtra("carName");
+        String carPrice = intent.getStringExtra("carPrice");
+        String carDesc = intent.getStringExtra("desc");
+        String travel = intent.getStringExtra("travel");
+        String map = intent.getStringExtra("map");
+        String gear = intent.getStringExtra("gear");
+        int image = intent.getIntExtra("img",1);
+
+        binding.tvNameCar.setText(carName);
+        binding.tvPriceCar.setText(carPrice);
+        binding.tvDeatilsCar.setText(carDesc);
+        binding.tvMileage.setText(travel);
+        binding.tvGear.setText(gear);
+        binding.tvMap.setText(map);
+        binding.imgCar.setImageResource(image);
+//        carDatabase = Room.databaseBuilder(this, getCarDatabase.class, "car-database").allowMainThreadQueries().build();
+//        carDao = ViewCarsActivity.getCarDatabase().carDao();
+//        if (intent != null) {
+//            int carId = intent.getIntExtra("carId", 0);
+//            car =  carDao.getCarById(carId);
+//            car = new Car(car.getId(),
+//                    car.getCarName(),
+//                    car.isFavorite(),
+//                    car.getMileage(),
+//                    car.getPrice(),
+//                    car.getCarModel(),
+//                    car.getYear(),
+//                    car.getEngineCapacity(),
+//                    car.getDescription(),
+//                    car.getTypeOfFuel(),
+//                    car.getColour(),
+//                    car.getTypeOfGear(),
+//                    car.getManufactureType(),
+//                    car.getPosition());
+//            Toast.makeText(this, ""+car.getId(), Toast.LENGTH_LONG).show();
+//            binding.tvNameCar.setText(car.getCarName());
+//            binding.tvPriceCar.setText(car.getPrice() + " USD");
+//            binding.tvDeatilsCar.setText(car.getDescription());
+//            binding.tvGear.setText(car.getTypeOfGear());
+//            binding.tvPetrol.setText(car.getTypeOfFuel());
+//            binding.tvLocation.setText(car.getPosition());
+//            binding.tvMileage.setText(car.getMileage()+"\\km");
+//            if (car.isFavorite()){
+//                binding.checkboxFavoriteCar.setForeground(getDrawable(R.drawable.favorite_checked_24));
+//            }
+//        }
 
         binding.back.setOnClickListener(view -> {
             finish();
@@ -100,7 +116,7 @@ public class ViewCarsActivity extends AppCompatActivity {
 
 
     }
-        public static getCarDatabase getCarDatabase() {
-            return carDatabase;
-        }
+//        public static getCarDatabase getCarDatabase() {
+//            return carDatabase;
+//        }
 }

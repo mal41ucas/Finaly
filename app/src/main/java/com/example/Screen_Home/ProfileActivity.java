@@ -65,6 +65,14 @@ public class ProfileActivity extends AppCompatActivity {
             finish();
         });
 
+//        Intent intent = getIntent();
+//        String user = intent.getStringExtra("user");
+//
+//        if (user.equals("view")){
+//            binding.btnAddCarProfile.setText("معرض سياراتي");
+//            binding.imageViewAdd.setVisibility(View.INVISIBLE);
+//        }
+
         binding.btnEditProfile.setOnClickListener(v -> {
             startActivity(new Intent(getBaseContext(), EditProfileActivity.class));
         });
