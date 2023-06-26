@@ -1,10 +1,14 @@
 package com.example.Adapter;
 
+import static android.content.Context.MODE_PRIVATE;
+
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,6 +33,9 @@ public class ShowCarAdapter extends RecyclerView.Adapter<ShowCarAdapter.viewHold
     Context context;
     List<ShowCar> arrayList;
 
+    SharedPreferences preferences;
+    SharedPreferences.Editor editor;
+
     public ShowCarAdapter(Context context, List<ShowCar> arrayList) {
         this.context = context;
         this.arrayList = arrayList;
@@ -42,6 +49,11 @@ public class ShowCarAdapter extends RecyclerView.Adapter<ShowCarAdapter.viewHold
 
     @Override
     public void onBindViewHolder(@NonNull viewHolder holder, int position) {
+
+        preferences = PreferenceManager.getDefaultSharedPreferences(context);
+        preferences = context.getSharedPreferences("MyPrefs", MODE_PRIVATE);
+        editor = preferences.edit();
+
         ShowCar showCar = arrayList.get(position);
         holder.binding.imgViewCar.setImageResource(R.drawable.audi);
 
@@ -62,13 +74,17 @@ public class ShowCarAdapter extends RecyclerView.Adapter<ShowCarAdapter.viewHold
         holder.binding.imagePerson.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                context.startActivity(new Intent(context, MyCarsActivity.class));
+                editor.putString("view","profile");
+                editor.putString("name",showCar.getNamePerson());
+                editor.putInt("imgCover", showCar.getImg());
+                editor.putInt("imgUser", showCar.getImgPerson());
+                editor.apply();
+                context.startActivity(new Intent(context, ProfileActivity.class));
             }
         });
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Bitmap imageBitmap = ((BitmapDrawable) holder.binding.imgViewCar.getDrawable()).getBitmap();
                 Intent intent = new Intent(context, ViewCarsActivity.class);
                 intent.putExtra("carName", showCar.getCarName());
                 intent.putExtra("img", showCar.getImg());

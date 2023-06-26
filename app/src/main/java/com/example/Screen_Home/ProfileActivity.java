@@ -40,7 +40,7 @@ public class ProfileActivity extends AppCompatActivity {
     String photo = "";
 
     SharedPreferences preferences;
-    String firstName,lastName, email,phone;
+    String firstName, lastName, email, phone, user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,8 +55,9 @@ public class ProfileActivity extends AppCompatActivity {
         firstName = preferences.getString(FIRST_NAME, "");
         lastName = preferences.getString(LAST_NAME, "");
         phone = preferences.getString(PHONE_NUMBER, "");
+        user = preferences.getString("view", "");
 
-        binding.tvNameUserProfile.setText(firstName+" "+lastName);
+        binding.tvNameUserProfile.setText(firstName + " " + lastName);
         binding.tvEmailProfile.setText(email);
         binding.tvPhoneProfile.setText(phone);
         binding.tvAddressProfile.setText("فلسطين - غزة");
@@ -65,16 +66,28 @@ public class ProfileActivity extends AppCompatActivity {
             finish();
         });
 
-//        Intent intent = getIntent();
-//        String user = intent.getStringExtra("user");
-//
-//        if (user.equals("view")){
-//            binding.btnAddCarProfile.setText("معرض سياراتي");
-//            binding.imageViewAdd.setVisibility(View.INVISIBLE);
-//        }
+        if (user.equals("profile")) {
+            binding.btnAddCarProfile.setText("معرض سياراتي");
+            binding.tvNameUserProfile.setText(preferences.getString("name",""));
+            binding.imgUserProfile.setImageResource(preferences.getInt("imgUser",1));
+            binding.imgBackground.setImageResource(preferences.getInt("imgCover",1));
+            binding.btnViewMyCar.setVisibility(View.VISIBLE);
+            binding.btnAddCarProfile.setVisibility(View.INVISIBLE);
+            binding.btnEditProfile.setVisibility(View.INVISIBLE);
+        } else {
+            binding.btnViewMyCar.setVisibility(View.INVISIBLE);
+            binding.btnAddCarProfile.setVisibility(View.VISIBLE);
+            binding.btnEditProfile.setVisibility(View.VISIBLE);
+        }
 
+        binding.btnViewMyCar.setOnClickListener(v -> {
+            startActivity(new Intent(getBaseContext(), MyCarsActivity.class));
+        });
         binding.btnEditProfile.setOnClickListener(v -> {
             startActivity(new Intent(getBaseContext(), EditProfileActivity.class));
+        });
+        binding.btnAddCarProfile.setOnClickListener(v -> {
+            startActivity(new Intent(getBaseContext(), AddPostActivity.class));
         });
 
         binding.imgEditPhotoUser.setOnClickListener(v -> {

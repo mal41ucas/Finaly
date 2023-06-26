@@ -248,6 +248,23 @@
         android:paddingLeft="40dp"
         android:paddingRight="40dp"
         android:text="إضافة سيارة"
+        android:visibility="visible"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_10ssp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvNameUserProfile" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnViewMyCar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="25dp"
+        android:backgroundTint="#058F82"
+        android:paddingLeft="50dp"
+        android:paddingRight="55dp"
+        android:text="معرض سياراتي"
+        android:visibility="invisible"
         android:textColor="@color/white"
         android:textSize="@dimen/_10ssp"
         app:layout_constraintStart_toStartOf="parent"

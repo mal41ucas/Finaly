@@ -5,6 +5,7 @@ import static android.content.Context.MODE_PRIVATE;
 import static com.example.Model.NamePrefStatic.FIRST_NAME;
 import static com.example.Model.NamePrefStatic.LAST_NAME;
 
+import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -12,6 +13,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
@@ -41,6 +43,7 @@ public class MoreFragment extends Fragment {
 
     FragmentMoreBinding binding;
     SharedPreferences preferences;
+    SharedPreferences.Editor editor;
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
@@ -79,17 +82,23 @@ public class MoreFragment extends Fragment {
         }
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = FragmentMoreBinding.inflate(inflater);
 
         preferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
         preferences = getActivity().getSharedPreferences("MyPrefs", MODE_PRIVATE);
+        editor = preferences.edit();
 
         binding.tvNameUser.setText(preferences.getString(FIRST_NAME, "") + " " +
                 preferences.getString(LAST_NAME, ""));
         binding.cardViewProfile.setOnClickListener(v -> {
+            editor.remove("view");
+            editor.remove("imgCover");
+            editor.remove("imgUser");
+            editor.apply();
             startActivity(new Intent(getActivity(), ProfileActivity.class));
         });
         binding.clickMyCars.setOnClickListener(v -> {

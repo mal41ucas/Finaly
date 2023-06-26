@@ -5,12 +5,21 @@ import static com.example.Model.NamePrefStatic.FIRST_NAME;
 import static com.example.Model.NamePrefStatic.LAST_NAME;
 import static com.example.Model.NamePrefStatic.PHONE_NUMBER;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
 
+import com.example.Screen_Login_Register.LoginActivity;
+import com.example.projectcar.R;
 import com.example.projectcar.databinding.ActivityEditProfileBinding;
 
 public class EditProfileActivity extends AppCompatActivity {
