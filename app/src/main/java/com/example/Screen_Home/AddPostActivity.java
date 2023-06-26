@@ -64,13 +64,13 @@ public class AddPostActivity extends AppCompatActivity {
 
         int id = random.nextInt(10);
         String carName = binding.edModel.getText().toString();
-        try {
-            year = Integer.parseInt(binding.edYear.getText().toString());
-            carMileage = Integer.parseInt(binding.edMileage.getText().toString());
-            price = Integer.parseInt(binding.edPrice.getText().toString());
-        } catch (NumberFormatException e) {
-            Toast.makeText(this, "Error in Parse", Toast.LENGTH_SHORT).show();
-        }
+//        try {
+//            year = Integer.parseInt(binding.edYear.getText().toString());
+//            carMileage = Integer.parseInt(binding.edMileage.getText().toString());
+//            price = Integer.parseInt(binding.edPrice.getText().toString());
+//        } catch (NumberFormatException e) {
+//            Toast.makeText(this, "Error in Parse", Toast.LENGTH_SHORT).show();
+//        }
 
         // Check for Fuel Type
         if (binding.radioPetrol.isChecked()) {
